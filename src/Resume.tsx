@@ -50,9 +50,9 @@ const Resume = () => {
 
 
     {/* PAGE 1 */}
-    <div className={`${page === 1 ? 'block' : 'hidden'} print:block w-[210mm] min-w-[210mm] h-[297mm] mx-auto bg-white shadow-lg print:shadow-none print:w-full print:h-[297mm] overflow-hidden text-gray-800 font-sans mb-8 print:mb-0 relative custom-page-break`}>
+    <div className={`${page === 1 ? 'block' : 'hidden'} print:block w-[210mm] min-w-[210mm] h-[297mm] mx-auto bg-white shadow-lg print:shadow-none print:w-[210mm] print:h-[296mm] overflow-hidden text-gray-800 font-sans mb-8 print:mb-0 relative custom-page-break`}>
       {/* Header Section */}
-      <header className="bg-[#0e5b9e] text-white px-6 pt-6 pb-8 relative print:bg-[#0e5b9e] print:text-white print:-webkit-print-color-adjust: exact">
+      <header className="bg-[#0e5b9e] text-white px-6 pt-6 pb-6 relative print:bg-[#0e5b9e] print:text-white print:-webkit-print-color-adjust: exact">
         <div className="flex justify-between items-start">
           <div>
             <h1 className="text-4xl font-bold mb-2">Nolan Cui</h1>
@@ -91,7 +91,7 @@ const Resume = () => {
       <div className="flex flex-col md:flex-row px-8 pb-8 pt-2 gap-8 print:flex-row print:gap-6">
         
         {/* Left Column (Main) */}
-        <div className="w-full md:w-2/3 space-y-8 print:w-2/3">
+        <div className="w-full md:w-2/3 space-y-6 print:w-2/3">
           
           {/* Work Experience Part 1 */}
           <section>
@@ -100,7 +100,7 @@ const Resume = () => {
               <h3 className="text-lg font-bold uppercase tracking-wide">Work Experience</h3>
             </div>
             
-            <div className="space-y-5 relative border-l-2 border-slate-200 ml-3 pl-6 pb-2">
+            <div className="space-y-4 relative border-l-2 border-slate-200 ml-3 pl-6 pb-2">
               
               {/* Research Assistant */}
               <div className="relative">
@@ -181,7 +181,7 @@ const Resume = () => {
         </div>
         
         {/* Right Column Page 1 (Skills) */}
-        <div className="w-full md:w-1/3 space-y-8 print:w-1/3 print:text-sm">
+        <div className="w-full md:w-1/3 space-y-6 print:w-1/3 print:text-sm">
             {/* Skills */}
             <section>
                 <div className="flex items-center gap-2 mb-3 text-[#0e5b9e]">
@@ -255,7 +255,7 @@ const Resume = () => {
 
 
     {/* PAGE 2 */}
-    <div className={`${page === 2 ? 'block' : 'hidden'} print:block w-[210mm] min-w-[210mm] h-[297mm] mx-auto bg-white shadow-lg print:shadow-none print:w-full print:h-[297mm] overflow-hidden text-gray-800 font-sans relative`}>
+    <div className={`${page === 2 ? 'block' : 'hidden'} print:block w-[210mm] min-w-[210mm] h-[297mm] mx-auto bg-white shadow-lg print:shadow-none print:w-[210mm] print:h-[296mm] overflow-hidden text-gray-800 font-sans relative`}>
       
       {/* Optional Top Margin/Spacer for Page 2 */}
       <div className="h-16 w-full hidden md:block print:block"></div>
@@ -264,12 +264,12 @@ const Resume = () => {
       <div className="flex flex-col md:flex-row px-8 pb-8 gap-8 print:flex-row print:gap-6 pt-0">
         
         {/* Left Column (Main) */}
-        <div className="w-full md:w-2/3 space-y-8 print:w-2/3">
+        <div className="w-full md:w-2/3 space-y-6 print:w-2/3">
           
           {/* Work Experience Continued */}
           <section>
              {/* Continue visual line from previous page if needed, but separate block is fine */}
-             <div className="space-y-5 relative border-l-2 border-slate-200 ml-3 pl-6 pb-2">
+             <div className="space-y-4 relative border-l-2 border-slate-200 ml-3 pl-6 pb-2">
               
               {/* 1Receipt */}
               <div className="relative">
@@ -326,7 +326,7 @@ const Resume = () => {
               <Briefcase size={20} /> 
               <h3 className="text-lg font-bold uppercase tracking-wide">Project Experience</h3>
             </div>
-             <div className="space-y-5 relative border-l-2 border-slate-200 ml-3 pl-6 pb-2">
+             <div className="space-y-4 relative border-l-2 border-slate-200 ml-3 pl-6 pb-2">
                 {/* University Major Prospects */}
                 <div className="relative">
                     <div className="absolute -left-[31px] top-1.5 bg-white border-2 border-[#0e5b9e] w-4 h-4 rounded-full"></div>
@@ -376,7 +376,7 @@ const Resume = () => {
         </div>
         
         {/* Right Column Page 2 */}
-        <div className="w-full md:w-1/3 space-y-8 print:w-1/3 print:text-sm">
+        <div className="w-full md:w-1/3 space-y-6 print:w-1/3 print:text-sm">
             
             {/* Education */}
             <section>
