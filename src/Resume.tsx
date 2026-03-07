@@ -60,7 +60,7 @@ const Resume = () => {
               <div className="relative">
                 <div className="absolute -left-[31px] top-1.5 bg-white border-2 border-[#0e5b9e] w-4 h-4 rounded-full"></div>
                 <div className="flex justify-between items-baseline mb-1">
-                  <h4 className="font-bold text-gray-900">Research Assistant (Full-Stack Developer)</h4>
+                  <h4 className="font-bold text-gray-900">Research Assistant</h4>
                   <span className="text-sm text-[#0e5b9e] font-semibold whitespace-nowrap">12/2025 ~ Now</span>
                 </div>
                 <div className="flex justify-between items-center mb-2">
@@ -84,7 +84,7 @@ const Resume = () => {
               <div className="relative">
                 <div className="absolute -left-[31px] top-1.5 bg-white border-2 border-[#0e5b9e] w-4 h-4 rounded-full"></div>
                 <div className="flex justify-between items-baseline mb-1">
-                  <h4 className="font-bold text-gray-900">Software Engineer</h4>
+                  <h4 className="font-bold text-gray-900">Full-Stack Developer</h4>
                    <span className="text-sm text-[#0e5b9e] font-semibold whitespace-nowrap">01/2026 ~ Now</span>
                 </div>
                 <h5 className="font-semibold text-gray-700 mb-2">Quantum Max - Melbourne, Australia</h5>
@@ -229,10 +229,10 @@ const Resume = () => {
               <div className="relative">
                 <div className="absolute -left-[31px] top-1.5 bg-white border-2 border-[#0e5b9e] w-4 h-4 rounded-full"></div>
                 <div className="flex justify-between items-baseline mb-1">
-                  <h4 className="font-bold text-gray-900">Full-Stack Developer</h4>
+                  <h4 className="font-bold text-gray-900">Full-Stack Developer (Internship & Contractor)</h4>
                    <span className="text-sm text-[#0e5b9e] font-semibold whitespace-nowrap">07/2025 ~ Now</span>
                 </div>
-                <h5 className="font-semibold text-gray-700 mb-2">1Receipt (Internship & Contractor) - Melbourne, Australia</h5>
+                <h5 className="font-semibold text-gray-700 mb-2">1Receipt - Melbourne, Australia</h5>
                  {/* Tech Stack Tags - Filler */}
                  <div className="flex flex-wrap gap-1.5 mb-2">
                     {['React Native', 'JavaScript', 'Node.js', 'Express.js', 'Python', 'AWS'].map(tech => (
