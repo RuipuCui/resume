@@ -58,12 +58,12 @@ const Resume = () => {
             <h1 className="text-4xl font-bold mb-2">Nolan Cui</h1>
             <h2 className="text-xl text-blue-100 mb-3">Full-Stack Developer</h2>
             
-            <p className="max-w-2xl text-blue-50 text-[13px] leading-relaxed mb-2">
-              MIT student at the University of Melbourne with strong hands-on industry experience building real-world full-stack products. Strong focus on scalable systems, practical problem-solving, and delivering polished user-facing solutions.
+            <p className="max-w-lg text-blue-50 text-[13px] leading-relaxed mb-2">
+              MIT student at the University of Melbourne with strong hands-on industry experience building full-stack products. Strong focus on scalable systems, practical problem-solving, and delivering polished user-facing solutions.
             </p>
           </div>
           
-          <div className="text-right text-[13px] space-y-1.5 flex flex-col items-end">
+          <div className="text-right text-[12px] space-y-1.5 flex flex-col items-end whitespace-nowrap">
             <div className="flex items-center gap-2">
               <span>0472 567 745</span>
               <Phone size={16} />
@@ -73,11 +73,11 @@ const Resume = () => {
               <Mail size={16} />
             </div>
             <div className="flex items-center gap-2">
-              <a href="https://www.linkedin.com/in/ruipu-cui-56bb831b8/" className="hover:text-blue-200" target="_blank" rel="noopener noreferrer">LinkedIn</a> 
+              <a href="https://www.linkedin.com/in/ruipu-cui-56bb831b8/" className="hover:text-blue-200" target="_blank" rel="noopener noreferrer">www.linkedin.com/in/ruipu-cui-56bb831b8/</a> 
               <Linkedin size={16} />
             </div>
             <div className="flex items-center gap-2">
-              <a href="https://github.com/RuipuCui" className="hover:text-blue-200" target="_blank" rel="noopener noreferrer">GitHub</a>
+              <a href="https://github.com/RuipuCui" className="hover:text-blue-200" target="_blank" rel="noopener noreferrer">github.com/RuipuCui</a>
               <Github size={16} />
             </div>
           </div>
@@ -216,7 +216,7 @@ const Resume = () => {
                      <div>
                         <h4 className="font-semibold text-gray-800 mb-1 text-[13px]">DevOps & AI</h4>
                         <div className="flex flex-wrap gap-2">
-                            {['AWS', 'Docker', 'Kubernetes', 'PyTorch', 'OpenAI API'].map(skill => (
+                            {['AWS', 'Docker', 'Kubernetes', 'OpenAI API'].map(skill => (
                                 <span key={skill} className="bg-slate-600 text-white text-[11px] px-2 py-1 rounded">{skill}</span>
                             ))}
                         </div>
@@ -291,8 +291,7 @@ const Resume = () => {
                 <ul className="list-disc list-outside ml-4 text-[13px] text-gray-600 space-y-0.5 leading-snug">
                   <li>Developed and optimised full-stack features (Express.js, React Native, Node.js), reducing page load times by 30% and improving user experience.</li>
                   <li>Improved performance and scalability of web/mobile apps through clean, maintainable code.</li>
-                  <li>Integrated APIs and contributed to cloud-based solutions using AWS.</li>
-                  <li>Followed Agile workflows, using Git and participated in code review.</li>
+                  <li>Integrated APIs and contributed to cloud-based solutions using AWS, e.g. EC2, Lambda, ECS, S3, SQS etc.</li>
                 </ul>
               </div>
               
@@ -340,7 +339,7 @@ const Resume = () => {
                         <Github size={10} /> View Code
                     </a>
                     <div className="flex flex-wrap gap-1 mb-1">
-                        {['Python', 'Kubernetes', 'Fission', 'Docker', 'ElasticSearch', 'Redis', 'PyTorch'].map((tech) => (
+                        {['Python', 'Kubernetes', 'Fission', 'Docker', 'ElasticSearch', 'PyTorch'].map((tech) => (
                             <span key={tech} className="bg-blue-50 text-blue-700 text-[10px] px-1.5 py-0.5 rounded border border-blue-100">{tech}</span>
                         ))}
                     </div>
