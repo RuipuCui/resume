@@ -56,7 +56,7 @@ const Resume = () => {
         <div className="flex justify-between items-start">
           <div>
             <h1 className="text-4xl font-bold mb-2">Nolan Cui</h1>
-            <h2 className="text-xl text-blue-100 mb-3">Full-Stack Developer</h2>
+            <h2 className="text-xl text-blue-100 mb-3">Software Engineer</h2>
             
             <p className="max-w-lg text-blue-50 text-[13px] leading-relaxed mb-2">
               MIT student at the University of Melbourne with strong hands-on industry experience building full-stack products. Strong focus on scalable systems, practical problem-solving, and delivering polished user-facing solutions.
@@ -366,7 +366,7 @@ const Resume = () => {
                         ))}
                     </div>
                     <p className="text-[13px] text-gray-600">
-                    Developed a real-time collaborative whiteboard application using Java RMI. Features include synchronized multi-user drawing, chat functionality, and administrative controls (manager/participant roles) with robust state synchronization.
+                    Built a distributed real-time collaborative system using Java RMI, implementing concurrency control and synchronized multi-user state management. Features include synchronized multi-user drawing, chat functionality, and administrative controls (manager/participant roles) with robust state synchronization.
                     </p>
                 </div>
              </div>
