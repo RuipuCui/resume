@@ -32,7 +32,7 @@ const Resume = () => {
       {page === 1 && (
          <button 
             onClick={() => setPage(2)}
-            className="fixed top-1/2 right-4 md:right-10 z-50 transform -translate-y-1/2 bg-white/90 hover:bg-white p-3 rounded-full shadow-xl text-[#0e5b9e] print:hidden transition-all hover:scale-110 border border-gray-100"
+            className="hidden md:block fixed top-1/2 right-4 md:right-10 z-50 transform -translate-y-1/2 bg-white/90 hover:bg-white p-3 rounded-full shadow-xl text-[#0e5b9e] print:hidden transition-all hover:scale-110 border border-gray-100"
             aria-label="Next Page"
          >
             <ChevronRight size={32} />
@@ -41,7 +41,7 @@ const Resume = () => {
         {page === 2 && (
          <button 
             onClick={() => setPage(1)}
-            className="fixed top-1/2 left-4 md:left-10 z-50 transform -translate-y-1/2 bg-white/90 hover:bg-white p-3 rounded-full shadow-xl text-[#0e5b9e] print:hidden transition-all hover:scale-110 border border-gray-100"
+            className="hidden md:block fixed top-1/2 left-4 md:left-10 z-50 transform -translate-y-1/2 bg-white/90 hover:bg-white p-3 rounded-full shadow-xl text-[#0e5b9e] print:hidden transition-all hover:scale-110 border border-gray-100"
             aria-label="Previous Page"
          >
             <ChevronLeft size={32} />
@@ -50,11 +50,11 @@ const Resume = () => {
 
 
     {/* PAGE 1 */}
-    <div className={`${page === 1 ? 'block' : 'hidden'} print:block w-[210mm] min-w-[210mm] h-[297mm] mx-auto bg-white shadow-lg print:shadow-none print:w-[210mm] print:h-[296mm] overflow-hidden text-gray-800 font-sans mb-8 print:mb-0 relative custom-page-break`}>
+    <div className={`${page === 1 ? 'block' : 'hidden'} print:block w-full md:w-[210mm] h-auto md:h-[297mm] min-h-screen md:min-h-[297mm] mx-auto bg-white shadow-lg print:shadow-none print:w-[210mm] print:h-[296mm] overflow-hidden text-gray-800 font-sans mb-8 print:mb-0 relative custom-page-break`}>
       {/* Header Section */}
       <header className="bg-[#0e5b9e] text-white px-6 pt-6 pb-6 relative print:bg-[#0e5b9e] print:text-white print:-webkit-print-color-adjust: exact">
-        <div className="flex justify-between items-start">
-          <div>
+        <div className="flex flex-col md:flex-row justify-between items-start">
+          <div className="mb-4 md:mb-0">
             <h1 className="text-4xl font-bold mb-2">Nolan Cui</h1>
             <h2 className="text-xl text-blue-100 mb-3">Software Engineer</h2>
             
@@ -63,17 +63,17 @@ const Resume = () => {
             </p>
           </div>
           
-          <div className="text-right text-[12px] space-y-1.5 flex flex-col items-end whitespace-nowrap">
+          <div className="text-left md:text-right text-[12px] space-y-1.5 flex flex-col items-start md:items-end w-full md:w-auto">
             <div className="flex items-center gap-2">
               <span>0472 567 745</span>
               <Phone size={16} />
             </div>
             <div className="flex items-center gap-2">
-              <a href="mailto:ruipuc@student.unimelb.edu.au" className="hover:text-blue-200">ruipuc@student.unimelb.edu.au</a>
+              <a href="mailto:ruipuc@student.unimelb.edu.au" className="hover:text-blue-200 break-all">ruipuc@student.unimelb.edu.au</a>
               <Mail size={16} />
             </div>
-            <div className="flex items-center gap-2">
-              <a href="https://www.linkedin.com/in/ruipu-cui-56bb831b8/" className="hover:text-blue-200" target="_blank" rel="noopener noreferrer">www.linkedin.com/in/ruipu-cui-56bb831b8/</a> 
+            <div className="flex items-center gap-2 max-w-full">
+              <a href="https://www.linkedin.com/in/ruipu-cui-56bb831b8/" className="hover:text-blue-200 truncate md:whitespace-nowrap max-w-[280px] md:max-w-none" target="_blank" rel="noopener noreferrer">www.linkedin.com/in/ruipu-cui-56bb831b8/</a> 
               <Linkedin size={16} />
             </div>
             <div className="flex items-center gap-2">
@@ -88,7 +88,7 @@ const Resume = () => {
       </header>
 
       {/* Main Content Page 1 */}
-      <div className="flex flex-col md:flex-row px-8 pb-8 pt-2 gap-8 print:flex-row print:gap-6">
+      <div className="flex flex-col md:flex-row px-4 md:px-8 pb-20 md:pb-8 pt-6 md:pt-2 gap-6 md:gap-8 print:flex-row print:gap-6">
         
         {/* Left Column (Main) */}
         <div className="w-full md:w-2/3 space-y-6 print:w-2/3">
@@ -248,20 +248,20 @@ const Resume = () => {
       </div>
       
        {/* Footer Page 1 */}
-        <div className="absolute bottom-4 text-right right-8 text-[13px] text-gray-400">
+        <div className="absolute bottom-4 left-4 md:left-auto md:right-8 text-left md:text-right text-[13px] text-gray-400">
             Page 1 of 2
         </div>
     </div>
 
 
     {/* PAGE 2 */}
-    <div className={`${page === 2 ? 'block' : 'hidden'} print:block w-[210mm] min-w-[210mm] h-[297mm] mx-auto bg-white shadow-lg print:shadow-none print:w-[210mm] print:h-[296mm] overflow-hidden text-gray-800 font-sans relative`}>
+    <div className={`${page === 2 ? 'block' : 'hidden'} print:block w-full md:w-[210mm] h-auto md:h-[297mm] min-h-screen md:min-h-[297mm] mx-auto bg-white shadow-lg print:shadow-none print:w-[210mm] print:h-[296mm] overflow-hidden text-gray-800 font-sans relative`}>
       
       {/* Optional Top Margin/Spacer for Page 2 */}
       <div className="h-16 w-full hidden md:block print:block"></div>
 
       {/* Main Content Page 2 */}
-      <div className="flex flex-col md:flex-row px-8 pb-8 gap-8 print:flex-row print:gap-6 pt-0">
+      <div className="flex flex-col md:flex-row px-4 md:px-8 pb-20 md:pb-8 pt-6 md:pt-0 gap-6 md:gap-8 print:flex-row print:gap-6">
         
         {/* Left Column (Main) */}
         <div className="w-full md:w-2/3 space-y-6 print:w-2/3">
@@ -425,7 +425,7 @@ const Resume = () => {
       </div>
 
        {/* Footer Page 2 */}
-        <div className="absolute bottom-4 text-right right-8 text-[13px] text-gray-400">
+        <div className="absolute bottom-4 left-4 md:left-auto md:right-8 text-left md:text-right text-[13px] text-gray-400">
             Page 2 of 2
         </div>
     </div>
