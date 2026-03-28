@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Mail, Phone, Linkedin, Github, Briefcase, GraduationCap, Award, Code, Globe, Zap, ChevronRight, ChevronLeft } from 'lucide-react';
+import { Mail, Phone, Linkedin, Github, Briefcase, GraduationCap, Award, Code, Globe, Zap, ChevronRight, ChevronLeft, Trophy } from 'lucide-react';
 
 const Resume = () => {
   const [page, setPage] = useState(1);
@@ -131,7 +131,7 @@ const Resume = () => {
                 <div className="absolute -left-[31px] top-1.5 bg-white border-2 border-[#0e5b9e] w-4 h-4 rounded-full"></div>
                 <div className="flex justify-between items-baseline mb-1">
                   <h4 className="font-bold text-gray-900 text-[15px]">Software Engineer</h4>
-                   <span className="text-[13px] text-[#0e5b9e] font-semibold whitespace-nowrap">01/2026 ~ Now</span>
+                   <span className="text-[13px] text-[#0e5b9e] font-semibold whitespace-nowrap">01/2026 ~ 03/2026</span>
                 </div>
                 <h5 className="font-semibold text-gray-700 mb-1 text-[13px]">Quantum Max - <span className="font-normal text-gray-600">Part-Time Contractor</span></h5>
                 {/* Tech Stack Tags - Filler */}
@@ -242,6 +242,20 @@ const Resume = () => {
                     ].map(skill => (
                         <span key={skill} className="bg-indigo-500 text-white text-[11px] px-2 py-1 rounded">{skill}</span>
                     ))}
+                </div>
+            </section>
+
+             {/* Certifications */}
+             <section className="mt-6">
+                <div className="flex items-center gap-2 mb-3 text-[#0e5b9e]">
+                    <Trophy size={20} />
+                    <h3 className="text-lg font-bold uppercase tracking-wide">Certifications</h3>
+                </div>
+                <div className="space-y-2">
+                    <div className="bg-amber-50 border border-amber-200 rounded p-2">
+                        <p className="font-semibold text-gray-900 text-[12px]">AWS Certified Cloud Practitioner</p>
+                        <p className="text-[11px] text-gray-600">Amazon Web Services</p>
+                    </div>
                 </div>
             </section>
         </div>
