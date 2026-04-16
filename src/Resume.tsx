@@ -69,7 +69,7 @@ const Resume = () => {
               <Phone size={16} />
             </div>
             <div className="flex items-center gap-2">
-              <a href="mailto:ruipuc@student.unimelb.edu.au" className="hover:text-blue-200 break-all">ruipuc@student.unimelb.edu.au</a>
+              <a href="mailto:ruipucui@gmail.com" className="hover:text-blue-200 break-all">ruipucui@gmail.com</a>
               <Mail size={16} />
             </div>
             <div className="flex items-center gap-2 max-w-full">
