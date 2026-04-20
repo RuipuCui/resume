@@ -92,6 +92,81 @@ const Resume = () => {
         
         {/* Left Column (Main) */}
         <div className="w-full md:w-2/3 space-y-6 print:w-2/3">
+
+          {/* Project Experience */}
+          <section>
+            <div className="flex items-center gap-2 mb-3 text-[#0e5b9e]">
+              <Briefcase size={20} /> 
+              <h3 className="text-lg font-bold uppercase tracking-wide">Project Experience</h3>
+            </div>
+             <div className="space-y-4 relative border-l-2 border-slate-200 ml-3 pl-6 pb-2">
+                {/* Image Processing */}
+                <div className="relative">
+                    <div className="absolute -left-[31px] top-1.5 bg-white border-2 border-[#0e5b9e] w-4 h-4 rounded-full"></div>
+                    <h4 className="font-bold text-gray-900 leading-tight text-[15px] mb-1">
+                        Image Processing <span className="whitespace-nowrap">C Developer</span>
+                    </h4>
+                    <div className="flex flex-wrap gap-1 mb-1">
+                        {['C', 'Image Processing', 'Filtering', 'Edge Detection'].map((tech) => (
+                            <span key={tech} className="bg-blue-50 text-blue-700 text-[10px] px-1.5 py-0.5 rounded border border-blue-100">{tech}</span>
+                        ))}
+                    </div>
+                    <a href="https://github.com/RuipuCui/image-process-Remastered" target="_blank" rel="noopener noreferrer" className="text-[11px] text-blue-600 hover:underline flex items-center gap-1 mb-1">
+                        <Github size={10} /> View Code
+                    </a>
+                    <ul className="list-disc list-outside ml-4 text-[13px] text-gray-600 space-y-0.5 leading-snug">
+                        <li>Implemented fundamental digital image processing algorithms in C, including pixel-level operations such as filtering, grayscale conversion, and edge detection.</li>
+                    </ul>
+                </div>
+
+                {/* Systems Programming Projects */}
+                <div className="relative">
+                    <div className="absolute -left-[31px] top-1.5 bg-white border-2 border-[#0e5b9e] w-4 h-4 rounded-full"></div>
+                    <h4 className="font-bold text-gray-900 leading-tight text-[15px] mb-1">
+                        Systems Programming Projects <span className="whitespace-nowrap">C Developer</span>
+                    </h4>
+                    <div className="flex flex-wrap gap-1 mb-1">
+                        {['C', 'Systems Programming', 'Memory Management', 'IMAP', 'TLS'].map((tech) => (
+                            <span key={tech} className="bg-blue-50 text-blue-700 text-[10px] px-1.5 py-0.5 rounded border border-blue-100">{tech}</span>
+                        ))}
+                    </div>
+                    <div className="flex flex-wrap gap-x-3 gap-y-1 mb-1">
+                        <a href="https://github.com/RuipuCui/Computer_system_project1" target="_blank" rel="noopener noreferrer" className="text-[11px] text-blue-600 hover:underline flex items-center gap-1">
+                            <Github size={10} /> Systems Project 1
+                        </a>
+                        <a href="https://github.com/RuipuCui/computer_system_project2" target="_blank" rel="noopener noreferrer" className="text-[11px] text-blue-600 hover:underline flex items-center gap-1">
+                            <Github size={10} /> IMAP Client
+                        </a>
+                    </div>
+                    <ul className="list-disc list-outside ml-4 text-[13px] text-gray-600 space-y-0.5 leading-snug">
+                        <li>Completed a computer systems project involving memory management, data representation, and low-level operations.</li>
+                        <li>Built a command-line IMAP email client in C, supporting both plain (port 143) and TLS-encrypted (port 993) connections.</li>
+                    </ul>
+                </div>
+
+                {/* Shared Whiteboard */}
+                <div className="relative">
+                    <div className="absolute -left-[31px] top-1.5 bg-white border-2 border-[#0e5b9e] w-4 h-4 rounded-full"></div>
+                    <div className="flex justify-between items-baseline mb-1">
+                    <h4 className="font-bold text-gray-900 leading-tight text-[15px]">
+                        Shared Whiteboard (Java RMI) <span className="whitespace-nowrap">Java Developer</span>
+                    </h4>
+                    <span className="text-[13px] text-[#0e5b9e] font-semibold whitespace-nowrap ml-2">03/2025 ~ 06/2025</span>
+                    </div>
+                    <a href="https://github.com/RuipuCui/Share_Canva_Board" target="_blank" rel="noopener noreferrer" className="text-[11px] text-blue-600 hover:underline flex items-center gap-1 mb-1">
+                        <Github size={10} /> View Code
+                    </a>
+                    <div className="flex flex-wrap gap-1 mb-1">
+                        {['Java', 'RMI', 'Swing', 'Multithreading'].map((tech) => (
+                            <span key={tech} className="bg-blue-50 text-blue-700 text-[10px] px-1.5 py-0.5 rounded border border-blue-100">{tech}</span>
+                        ))}
+                    </div>
+                    <p className="text-[13px] text-gray-600">
+                    Built a distributed real-time collaborative system using Java RMI, implementing concurrency control and synchronized multi-user state management. Features include synchronized multi-user drawing, chat functionality, and administrative controls (manager/participant roles) with robust state synchronization.
+                    </p>
+                </div>
+             </div>
+          </section>
           
           {/* Work Experience Part 1 */}
           <section>
@@ -126,56 +201,6 @@ const Resume = () => {
                 </ul>
               </div>
 
-              {/* Quantum Max */}
-              <div className="relative">
-                <div className="absolute -left-[31px] top-1.5 bg-white border-2 border-[#0e5b9e] w-4 h-4 rounded-full"></div>
-                <div className="flex justify-between items-baseline mb-1">
-                  <h4 className="font-bold text-gray-900 text-[15px]">Software Engineer</h4>
-                   <span className="text-[13px] text-[#0e5b9e] font-semibold whitespace-nowrap">01/2026 ~ 03/2026</span>
-                </div>
-                <h5 className="font-semibold text-gray-700 mb-1 text-[13px]">Quantum Max - <span className="font-normal text-gray-600">Part-Time Contractor</span></h5>
-                {/* Tech Stack Tags - Filler */}
-                <div className="flex flex-wrap gap-1.5 mb-1">
-                    {['React', 'TypeScript', 'Node.js', 'Express.js', 'PostgreSQL', 'OpenAI API', 'JavaScript', 'HTML/CSS', 'AI Integration'].map(tech => (
-                        <span key={tech} className="bg-blue-50 text-blue-700 text-[10px] px-1.5 py-0.5 rounded border border-blue-100">{tech}</span>
-                    ))}
-                </div>
-                <ul className="list-disc list-outside ml-4 text-[13px] text-gray-600 space-y-0.5 leading-snug">
-                  <li>Built an AI-powered university learning platform with separate student, teacher, and admin experiences, covering course publishing, weekly content delivery, quizzes, and progress tracking.</li>
-                  <li>Developed full-stack features using React/Vite, Node.js, PostgreSQL, and Supabase, including role-based access, media storage, notifications, analytics, and profile management.</li>
-                  <li>Implemented AI workflows for converting lecture slides into structured knowledge units, generating quizzes and learning media, and providing contextual chat assistance for students.</li>
-                  <li>Designed interactive learning UX such as inline notes/highlights, AI actions on selected text, responsive dashboards, and course management tools for educators.</li>
-                </ul>
-              </div>
-
-               {/* Freelance */}
-              <div className="relative">
-                <div className="absolute -left-[31px] top-1.5 bg-white border-2 border-[#0e5b9e] w-4 h-4 rounded-full"></div>
-                <div className="flex justify-between items-baseline mb-1">
-                  <h4 className="font-bold text-gray-900 text-[15px]">Freelance Full-Stack Developer</h4>
-                   <span className="text-[13px] text-[#0e5b9e] font-semibold whitespace-nowrap">11/2025 ~ 01/2026</span>
-                </div>
-                <div className="flex justify-between items-center mb-1">
-                    <span className="font-semibold text-gray-700 text-[13px]">Self-Employed - <span className="font-normal text-gray-600">Freelance</span></span>
-                    <div className="flex gap-2 flex-wrap justify-end">
-                        <a href="https://www.solidoro.com.au/" target="_blank" rel="noopener noreferrer" className="text-[11px] text-blue-600 hover:underline flex items-center gap-1"><Globe size={10}/> Solidoro</a>
-                        <a href="https://solidoro-web-iota.vercel.app/" target="_blank" rel="noopener noreferrer" className="text-[11px] text-blue-600 hover:underline flex items-center gap-1"><Globe size={10}/> Solidoro (App)</a>
-                        <a href="https://mirror-studio-jade.vercel.app/" target="_blank" rel="noopener noreferrer" className="text-[11px] text-blue-600 hover:underline flex items-center gap-1"><Globe size={10}/> Mirror Studio</a>
-                    </div>
-                </div>
-                 {/* Tech Stack Tags - Filler */}
-                 <div className="flex flex-wrap gap-1.5 mb-1">
-                    {['React', 'TypeScript', 'JavaScript', 'Node.js', 'Express.js', 'HTML/CSS'].map(tech => (
-                        <span key={tech} className="bg-blue-50 text-blue-700 text-[10px] px-1.5 py-0.5 rounded border border-blue-100">{tech}</span>
-                    ))}
-                </div>
-                <ul className="list-disc list-outside ml-4 text-[13px] text-gray-600 space-y-0.5 leading-snug">
-                  <li>Delivered custom React/Vite web platforms for clients across premium furniture, building materials, and AI/education brands.</li>
-                  <li>Built full-stack catalog and CMS systems with admin dashboards, Express APIs, and Supabase-backed data, media, and content workflows.</li>
-                  <li>Implemented customer-facing features including product discovery, gated account portals, contact pipelines, and AI chat/voice integrations.</li>
-                  <li>Designed responsive bilingual marketing sites with polished UI, animation, and reusable component systems.</li>
-                </ul>
-              </div>
             </div>
           </section>
         </div>
@@ -284,6 +309,55 @@ const Resume = () => {
           <section>
              {/* Continue visual line from previous page if needed, but separate block is fine */}
              <div className="space-y-4 relative border-l-2 border-slate-200 ml-3 pl-6 pb-2">
+
+              {/* Quantum Max */}
+              <div className="relative">
+                <div className="absolute -left-[31px] top-1.5 bg-white border-2 border-[#0e5b9e] w-4 h-4 rounded-full"></div>
+                <div className="flex justify-between items-baseline mb-1">
+                  <h4 className="font-bold text-gray-900 text-[15px]">Software Engineer</h4>
+                   <span className="text-[13px] text-[#0e5b9e] font-semibold whitespace-nowrap">01/2026 ~ 03/2026</span>
+                </div>
+                <h5 className="font-semibold text-gray-700 mb-1 text-[13px]">Quantum Max - <span className="font-normal text-gray-600">Part-Time Contractor</span></h5>
+                <div className="flex flex-wrap gap-1.5 mb-1">
+                    {['React', 'TypeScript', 'Node.js', 'Express.js', 'PostgreSQL', 'OpenAI API', 'JavaScript', 'HTML/CSS', 'AI Integration'].map(tech => (
+                        <span key={tech} className="bg-blue-50 text-blue-700 text-[10px] px-1.5 py-0.5 rounded border border-blue-100">{tech}</span>
+                    ))}
+                </div>
+                <ul className="list-disc list-outside ml-4 text-[13px] text-gray-600 space-y-0.5 leading-snug">
+                  <li>Built an AI-powered university learning platform with separate student, teacher, and admin experiences, covering course publishing, weekly content delivery, quizzes, and progress tracking.</li>
+                  <li>Developed full-stack features using React/Vite, Node.js, PostgreSQL, and Supabase, including role-based access, media storage, notifications, analytics, and profile management.</li>
+                  <li>Implemented AI workflows for converting lecture slides into structured knowledge units, generating quizzes and learning media, and providing contextual chat assistance for students.</li>
+                  <li>Designed interactive learning UX such as inline notes/highlights, AI actions on selected text, responsive dashboards, and course management tools for educators.</li>
+                </ul>
+              </div>
+
+              {/* Freelance */}
+              <div className="relative">
+                <div className="absolute -left-[31px] top-1.5 bg-white border-2 border-[#0e5b9e] w-4 h-4 rounded-full"></div>
+                <div className="flex justify-between items-baseline mb-1">
+                  <h4 className="font-bold text-gray-900 text-[15px]">Freelance Full-Stack Developer</h4>
+                   <span className="text-[13px] text-[#0e5b9e] font-semibold whitespace-nowrap">11/2025 ~ 01/2026</span>
+                </div>
+                <div className="flex justify-between items-center mb-1">
+                    <span className="font-semibold text-gray-700 text-[13px]">Self-Employed - <span className="font-normal text-gray-600">Freelance</span></span>
+                    <div className="flex gap-2 flex-wrap justify-end">
+                        <a href="https://www.solidoro.com.au/" target="_blank" rel="noopener noreferrer" className="text-[11px] text-blue-600 hover:underline flex items-center gap-1"><Globe size={10}/> Solidoro</a>
+                        <a href="https://solidoro-web-iota.vercel.app/" target="_blank" rel="noopener noreferrer" className="text-[11px] text-blue-600 hover:underline flex items-center gap-1"><Globe size={10}/> Solidoro (App)</a>
+                        <a href="https://mirror-studio-jade.vercel.app/" target="_blank" rel="noopener noreferrer" className="text-[11px] text-blue-600 hover:underline flex items-center gap-1"><Globe size={10}/> Mirror Studio</a>
+                    </div>
+                </div>
+                 <div className="flex flex-wrap gap-1.5 mb-1">
+                    {['React', 'TypeScript', 'JavaScript', 'Node.js', 'Express.js', 'HTML/CSS'].map(tech => (
+                        <span key={tech} className="bg-blue-50 text-blue-700 text-[10px] px-1.5 py-0.5 rounded border border-blue-100">{tech}</span>
+                    ))}
+                </div>
+                <ul className="list-disc list-outside ml-4 text-[13px] text-gray-600 space-y-0.5 leading-snug">
+                  <li>Delivered custom React/Vite web platforms for clients across premium furniture, building materials, and AI/education brands.</li>
+                  <li>Built full-stack catalog and CMS systems with admin dashboards, Express APIs, and Supabase-backed data, media, and content workflows.</li>
+                  <li>Implemented customer-facing features including product discovery, gated account portals, contact pipelines, and AI chat/voice integrations.</li>
+                  <li>Designed responsive bilingual marketing sites with polished UI, animation, and reusable component systems.</li>
+                </ul>
+              </div>
               
               {/* 1Receipt */}
               <div className="relative">
@@ -332,60 +406,6 @@ const Resume = () => {
 
             </div>
           </section>
-
-          {/* Project Experience */}
-          <section>
-            <div className="flex items-center gap-2 mb-3 text-[#0e5b9e]">
-              <Briefcase size={20} /> 
-              <h3 className="text-lg font-bold uppercase tracking-wide">Project Experience</h3>
-            </div>
-             <div className="space-y-4 relative border-l-2 border-slate-200 ml-3 pl-6 pb-2">
-                {/* University Major Prospects */}
-                <div className="relative">
-                    <div className="absolute -left-[31px] top-1.5 bg-white border-2 border-[#0e5b9e] w-4 h-4 rounded-full"></div>
-                    <div className="flex justify-between items-baseline mb-1">
-                    <h4 className="font-bold text-gray-900 leading-tight text-[15px]">
-                        University Major Prospects Analysis <span className="whitespace-nowrap">Cloud Developer</span>
-                    </h4>
-                    <span className="text-[13px] text-[#0e5b9e] font-semibold whitespace-nowrap ml-2">03/2025 ~ 06/2025</span>
-                    </div>
-                    <a href="https://github.com/RuipuCui/Univerisity-major-prospects-for-Engineering-and-IT-in-Australia" target="_blank" rel="noopener noreferrer" className="text-[11px] text-blue-600 hover:underline flex items-center gap-1 mb-1">
-                        <Github size={10} /> View Code
-                    </a>
-                    <div className="flex flex-wrap gap-1 mb-1">
-                        {['Python', 'Kubernetes', 'Fission', 'Docker', 'ElasticSearch', 'PyTorch'].map((tech) => (
-                            <span key={tech} className="bg-blue-50 text-blue-700 text-[10px] px-1.5 py-0.5 rounded border border-blue-100">{tech}</span>
-                        ))}
-                    </div>
-                    <p className="text-[13px] text-gray-600">
-                    Built a cloud-native data pipeline to analyse social media sentiment (Mastodon/Reddit) regarding IT majors. Implemented serverless harvesters, an NLP sentiment analysis service, and an interactive frontend using Jupyter/Voila on Kubernetes.
-                    </p>
-                </div>
-
-                {/* Shared Whiteboard */}
-                <div className="relative">
-                    <div className="absolute -left-[31px] top-1.5 bg-white border-2 border-[#0e5b9e] w-4 h-4 rounded-full"></div>
-                    <div className="flex justify-between items-baseline mb-1">
-                    <h4 className="font-bold text-gray-900 leading-tight text-[15px]">
-                        Shared Whiteboard (Java RMI) <span className="whitespace-nowrap">Java Developer</span>
-                    </h4>
-                    <span className="text-[13px] text-[#0e5b9e] font-semibold whitespace-nowrap ml-2">03/2025 ~ 06/2025</span>
-                    </div>
-                    <a href="https://github.com/RuipuCui/Share_Canva_Board" target="_blank" rel="noopener noreferrer" className="text-[11px] text-blue-600 hover:underline flex items-center gap-1 mb-1">
-                        <Github size={10} /> View Code
-                    </a>
-                    <div className="flex flex-wrap gap-1 mb-1">
-                        {['Java', 'RMI', 'Swing', 'Multithreading'].map((tech) => (
-                            <span key={tech} className="bg-blue-50 text-blue-700 text-[10px] px-1.5 py-0.5 rounded border border-blue-100">{tech}</span>
-                        ))}
-                    </div>
-                    <p className="text-[13px] text-gray-600">
-                    Built a distributed real-time collaborative system using Java RMI, implementing concurrency control and synchronized multi-user state management. Features include synchronized multi-user drawing, chat functionality, and administrative controls (manager/participant roles) with robust state synchronization.
-                    </p>
-                </div>
-             </div>
-          </section>
-
         </div>
         
         {/* Right Column Page 2 */}
@@ -448,4 +468,3 @@ const Resume = () => {
 };
 
 export default Resume;
-
