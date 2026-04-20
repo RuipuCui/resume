@@ -59,7 +59,7 @@ const Resume = () => {
             <h2 className="text-xl text-blue-100 mb-3">Software Engineer</h2>
             
             <p className="max-w-lg text-blue-50 text-[13px] leading-relaxed mb-2">
-              MIT student at the University of Melbourne with strong hands-on industry experience building full-stack products. Strong focus on scalable systems, practical problem-solving, and delivering polished user-facing solutions.
+              MIT student at the University of Melbourne with hands-on experience building full-stack platforms using React/TypeScript, Node.js, Python, and SQL-backed systems. Comfortable with Git/GitHub, Unix-like environments, cloud tooling, and C/Java development, with strong interest in cloud-based and research software with reliable delivery.
             </p>
           </div>
           
@@ -120,9 +120,9 @@ const Resume = () => {
                     ))}
                 </div>
                 <ul className="list-disc list-outside ml-4 text-[13px] text-gray-600 space-y-0.5 leading-snug">
-                  <li>Developed and maintained a full-stack educational assessment platform (Vue.js, Vite, Python, Flask) for creating, delivering, and grading interactive logic-based questions.</li>
-                  <li>Built and integrated frontend-backend workflows for autograding, rubric editing, student answer retrieval, and ExNet/ExFlow question management.</li>
-                  <li>Investigated and fixed cross-repository bugs involving API contracts, malformed data handling, and graph rendering/state synchronization.</li>
+                  <li>Developed and maintained a full-stack assessment platform (Vue.js, Vite, Python, Flask), building interfaces and backend workflows for interactive, data-driven question delivery and grading.</li>
+                  <li>Worked with academic users to improve autograding, rubric editing, student answer retrieval, and question management workflows across connected systems.</li>
+                  <li>Investigated and fixed cross-repository issues spanning API contracts, malformed data handling, and graph rendering/state synchronization to improve platform reliability.</li>
                 </ul>
               </div>
 
@@ -141,10 +141,9 @@ const Resume = () => {
                     ))}
                 </div>
                 <ul className="list-disc list-outside ml-4 text-[13px] text-gray-600 space-y-0.5 leading-snug">
-                  <li>Built an AI-powered university learning platform with separate student, teacher, and admin experiences, covering course publishing, weekly content delivery, quizzes, and progress tracking.</li>
-                  <li>Developed full-stack features using React/Vite, Node.js, PostgreSQL, and Supabase, including role-based access, media storage, notifications, analytics, and profile management.</li>
-                  <li>Implemented AI workflows for converting lecture slides into structured knowledge units, generating quizzes and learning media, and providing contextual chat assistance for students.</li>
-                  <li>Designed interactive learning UX such as inline notes/highlights, AI actions on selected text, responsive dashboards, and course management tools for educators.</li>
+                  <li>Built React/Vite and Node.js features for an AI-powered learning platform, delivering role-based dashboards, course workflows, quizzes, analytics, and profile management.</li>
+                  <li>Developed PostgreSQL and Supabase-backed APIs and data flows for course content, media storage, notifications, and progress tracking.</li>
+                  <li>Implemented AI-assisted content generation and chat features while improving responsive UI quality and maintainability.</li>
                 </ul>
               </div>
 
@@ -170,10 +169,9 @@ const Resume = () => {
                     ))}
                 </div>
                 <ul className="list-disc list-outside ml-4 text-[13px] text-gray-600 space-y-0.5 leading-snug">
-                  <li>Delivered custom React/Vite web platforms for clients across premium furniture, building materials, and AI/education brands.</li>
-                  <li>Built full-stack catalog and CMS systems with admin dashboards, Express APIs, and Supabase-backed data, media, and content workflows.</li>
-                  <li>Implemented customer-facing features including product discovery, gated account portals, contact pipelines, and AI chat/voice integrations.</li>
-                  <li>Designed responsive bilingual marketing sites with polished UI, animation, and reusable component systems.</li>
+                  <li>Delivered custom React/Vite web platforms and admin tools, translating client requirements into maintainable workflows and polished user interfaces.</li>
+                  <li>Built Express APIs and Supabase-backed data and media systems for catalog, CMS, and account-management workflows.</li>
+                  <li>Implemented search, gated portals, contact pipelines, and AI integrations with strong focus on responsiveness and usability.</li>
                 </ul>
               </div>
             </div>
@@ -192,7 +190,7 @@ const Resume = () => {
                     <div>
                         <h4 className="font-semibold text-gray-800 mb-1 text-[13px]">Programming Languages</h4>
                         <div className="flex flex-wrap gap-2">
-                            {['Python', 'Java', 'C/C++', 'JavaScript', 'TypeScript', 'SQL'].map(skill => (
+                            {['JavaScript', 'TypeScript', 'Java', 'C/C++', 'Python', 'SQL'].map(skill => (
                                 <span key={skill} className="bg-[#0e5b9e] text-white text-[11px] px-2 py-1 rounded">{skill}</span>
                             ))}
                         </div>
@@ -200,7 +198,7 @@ const Resume = () => {
                     <div>
                         <h4 className="font-semibold text-gray-800 mb-1 text-[13px]">Front-end</h4>
                         <div className="flex flex-wrap gap-2">
-                            {['React', 'React Native', 'Vue.js', 'HTML5/CSS3'].map(skill => (
+                            {['React', 'Vue.js', 'React Native', 'HTML5/CSS3'].map(skill => (
                                 <span key={skill} className="bg-sky-600 text-white text-[11px] px-2 py-1 rounded">{skill}</span>
                             ))}
                         </div>
@@ -208,15 +206,15 @@ const Resume = () => {
                     <div>
                         <h4 className="font-semibold text-gray-800 mb-1 text-[13px]">Back-end & Databases</h4>
                         <div className="flex flex-wrap gap-2">
-                            {['Node.js', 'Express.js', 'Flask', 'PostgreSQL', 'Redis', 'ElasticSearch'].map(skill => (
+                            {['Node.js', 'Express.js', 'Flask', 'PostgreSQL', 'Supabase', 'ElasticSearch'].map(skill => (
                                 <span key={skill} className="bg-sky-700 text-white text-[11px] px-2 py-1 rounded">{skill}</span>
                             ))}
                         </div>
                     </div>
                      <div>
-                        <h4 className="font-semibold text-gray-800 mb-1 text-[13px]">DevOps & AI</h4>
+                        <h4 className="font-semibold text-gray-800 mb-1 text-[13px]">Cloud, DevOps & Tools</h4>
                         <div className="flex flex-wrap gap-2">
-                            {['AWS', 'Docker', 'Kubernetes', 'OpenAI API'].map(skill => (
+                            {['AWS', 'Docker', 'Kubernetes', 'Git/GitHub', 'Unix/Linux'].map(skill => (
                                 <span key={skill} className="bg-slate-600 text-white text-[11px] px-2 py-1 rounded">{skill}</span>
                             ))}
                         </div>
@@ -303,9 +301,9 @@ const Resume = () => {
                     ))}
                 </div>
                 <ul className="list-disc list-outside ml-4 text-[13px] text-gray-600 space-y-0.5 leading-snug">
-                  <li>Developed and optimised full-stack features (Express.js, React Native, Node.js), reducing page load times by 30% and improving user experience.</li>
-                  <li>Improved performance and scalability of web/mobile apps through clean, maintainable code.</li>
-                  <li>Integrated APIs and contributed to cloud-based solutions using AWS, e.g. EC2, Lambda, ECS, S3, SQS etc.</li>
+                  <li>Developed and optimised full-stack features across Express.js, React Native, and Node.js applications, improving performance and user experience.</li>
+                  <li>Integrated APIs and AWS services including EC2, Lambda, ECS, S3, and SQS to support scalable cloud-based workflows.</li>
+                  <li>Improved reliability and maintainability of web and mobile applications through clean implementation and performance-focused fixes.</li>
                 </ul>
               </div>
               
@@ -324,9 +322,9 @@ const Resume = () => {
                     ))}
                 </div>
                 <ul className="list-disc list-outside ml-4 text-[13px] text-gray-600 space-y-0.5 leading-snug">
-                  <li>Designed and simulated EV Charging Load Management algorithms, ensuring stable performance under infrastructure capacity limits and contributing to patent applications.</li>
-                  <li>Collaborated with senior developers to implement C programs to simulate LMS algorithms.</li>
-                  <li>Participated in multiple formal documents including Patent Application, technical proposals.</li>
+                  <li>Designed and simulated EV charging load-management algorithms in C/C++, ensuring stable performance under infrastructure capacity limits and contributing to patent applications.</li>
+                  <li>Collaborated with senior engineers to implement and test low-level simulation programs.</li>
+                  <li>Prepared technical proposals and patent materials, strengthening formal technical documentation skills.</li>
                 </ul>
               </div>
 
@@ -358,7 +356,29 @@ const Resume = () => {
                         ))}
                     </div>
                     <p className="text-[13px] text-gray-600">
-                    Built a cloud-native data pipeline to analyse social media sentiment (Mastodon/Reddit) regarding IT majors. Implemented serverless harvesters, an NLP sentiment analysis service, and an interactive frontend using Jupyter/Voila on Kubernetes.
+                    Built a cloud-native data pipeline and interactive analysis frontend to explore Mastodon and Reddit sentiment on IT majors, using Kubernetes-hosted serverless harvesters, NLP services, and Jupyter/Voila visualisation components.
+                    </p>
+                </div>
+
+                {/* Image Processing */}
+                <div className="relative">
+                    <div className="absolute -left-[31px] top-1.5 bg-white border-2 border-[#0e5b9e] w-4 h-4 rounded-full"></div>
+                    <div className="flex justify-between items-baseline mb-1">
+                    <h4 className="font-bold text-gray-900 leading-tight text-[15px]">
+                        Image Processing <span className="whitespace-nowrap">C Developer</span>
+                    </h4>
+                    <span className="text-[13px] text-[#0e5b9e] font-semibold whitespace-nowrap ml-2">03/2024 ~ 06/2024</span>
+                    </div>
+                    <a href="https://github.com/RuipuCui/image-process-Remastered" target="_blank" rel="noopener noreferrer" className="text-[11px] text-blue-600 hover:underline flex items-center gap-1 mb-1">
+                        <Github size={10} /> View Code
+                    </a>
+                    <div className="flex flex-wrap gap-1 mb-1">
+                        {['C', 'Image Processing', 'Filtering', 'Edge Detection'].map((tech) => (
+                            <span key={tech} className="bg-blue-50 text-blue-700 text-[10px] px-1.5 py-0.5 rounded border border-blue-100">{tech}</span>
+                        ))}
+                    </div>
+                    <p className="text-[13px] text-gray-600">
+                    Implemented fundamental digital image processing algorithms in C, including pixel-level filtering, grayscale conversion, and edge detection.
                     </p>
                 </div>
 
@@ -380,7 +400,7 @@ const Resume = () => {
                         ))}
                     </div>
                     <p className="text-[13px] text-gray-600">
-                    Built a distributed real-time collaborative system using Java RMI, implementing concurrency control and synchronized multi-user state management. Features include synchronized multi-user drawing, chat functionality, and administrative controls (manager/participant roles) with robust state synchronization.
+                    Built a Java RMI distributed application with synchronized multi-user visual state, chat, and role-based administration, implementing concurrency control and robust client-server coordination.
                     </p>
                 </div>
              </div>
@@ -448,4 +468,3 @@ const Resume = () => {
 };
 
 export default Resume;
-
