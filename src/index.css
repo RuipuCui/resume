@@ -11,15 +11,24 @@
 @media print {
   @page {
     margin: 0;
-    size: auto;
+    size: A4;
   }
   body {
     @apply bg-white;
     -webkit-print-color-adjust: exact;
     print-color-adjust: exact;
   }
+  #root {
+    width: 210mm;
+    min-height: 297mm;
+  }
   .custom-page-break {
       break-after: page;
       page-break-after: always;
+  }
+  .cover-letter-page {
+      width: 210mm !important;
+      height: 297mm !important;
+      margin: 0 !important;
   }
 }
