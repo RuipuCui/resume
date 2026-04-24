@@ -10,16 +10,36 @@
 
 @media print {
   @page {
-    margin: 0;
-    size: auto;
+    margin: 8mm 0;
+    size: A4;
   }
+  html,
   body {
     @apply bg-white;
+    margin: 0;
     -webkit-print-color-adjust: exact;
     print-color-adjust: exact;
+  }
+  #root {
+    width: auto;
+    min-height: auto;
   }
   .custom-page-break {
       break-after: page;
       page-break-after: always;
+  }
+  .cover-letter-shell {
+      min-height: auto !important;
+      overflow: visible !important;
+      padding: 0 !important;
+      background: white !important;
+  }
+  .cover-letter-page {
+      width: 210mm !important;
+      height: 281mm !important;
+      margin: 0 !important;
+      break-inside: avoid !important;
+      page-break-inside: avoid !important;
+      overflow: hidden !important;
   }
 }
