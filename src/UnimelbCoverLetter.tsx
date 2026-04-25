@@ -23,6 +23,7 @@ type CoverLetterContent = {
 }
 
 const STORAGE_KEY = 'cover-letter-template-v1'
+const COVER_LETTER_PDF_SCALE = 3
 
 const defaultContent: CoverLetterContent = {
   pageLabel: 'Cover Letter',
@@ -118,14 +119,25 @@ function UnimelbCoverLetter() {
     setIsExportingPdf(true)
 
     try {
+      if (document.fonts?.ready) {
+        await document.fonts.ready
+      }
+
+      await new Promise((resolve) => {
+        window.requestAnimationFrame(() => {
+          window.requestAnimationFrame(() => resolve(null))
+        })
+      })
+
       const canvas = await html2canvas(pageRef.current, {
         backgroundColor: '#ffffff',
-        scale: Math.min(window.devicePixelRatio || 2, 2),
+        scale: Math.min(Math.max(window.devicePixelRatio || 1, COVER_LETTER_PDF_SCALE), 4),
         useCORS: true,
-        width: pageRef.current.scrollWidth,
-        height: pageRef.current.scrollHeight,
-        windowWidth: pageRef.current.scrollWidth,
-        windowHeight: pageRef.current.scrollHeight,
+        logging: false,
+        width: pageRef.current.offsetWidth,
+        height: pageRef.current.offsetHeight,
+        windowWidth: pageRef.current.offsetWidth,
+        windowHeight: pageRef.current.offsetHeight,
         scrollX: 0,
         scrollY: 0,
       })
@@ -135,12 +147,12 @@ function UnimelbCoverLetter() {
         orientation: 'portrait',
         unit: 'mm',
         format: 'a4',
-        compress: true,
+        compress: false,
       })
 
       const pageWidth = pdf.internal.pageSize.getWidth()
       const pageHeight = pdf.internal.pageSize.getHeight()
-      pdf.addImage(imageData, 'PNG', 0, 0, pageWidth, pageHeight, undefined, 'FAST')
+      pdf.addImage(imageData, 'PNG', 0, 0, pageWidth, pageHeight)
 
       const blob = pdf.output('blob')
       const blobUrl = URL.createObjectURL(blob)
