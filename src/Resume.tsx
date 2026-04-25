@@ -1,56 +1,49 @@
-import { useState, useEffect } from 'react';
-import { Mail, Phone, Linkedin, Github, Briefcase, GraduationCap, Award, Code, Globe, Zap, ChevronRight, ChevronLeft, Trophy } from 'lucide-react';
+import { useEffect, useRef, useState } from 'react';
+import { Mail, Phone, Linkedin, Github, Briefcase, GraduationCap, Award, Code, Globe, Zap, Trophy } from 'lucide-react';
 
 const Resume = () => {
   const [page, setPage] = useState(1);
+  const wheelDeltaRef = useRef(0);
+  const isSwitchingRef = useRef(false);
 
-  // Scroll to top when page changes
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
+    wheelDeltaRef.current = 0;
   }, [page]);
 
+  const handleWheel = (event: React.WheelEvent<HTMLDivElement>) => {
+    if (isSwitchingRef.current) {
+      event.preventDefault();
+      return;
+    }
+
+    wheelDeltaRef.current += event.deltaY;
+
+    if (Math.abs(wheelDeltaRef.current) < 45) {
+      return;
+    }
+
+    if (wheelDeltaRef.current > 0 && page === 1) {
+      event.preventDefault();
+      isSwitchingRef.current = true;
+      setPage(2);
+    } else if (wheelDeltaRef.current < 0 && page === 2) {
+      event.preventDefault();
+      isSwitchingRef.current = true;
+      setPage(1);
+    }
+
+    window.setTimeout(() => {
+      isSwitchingRef.current = false;
+      wheelDeltaRef.current = 0;
+    }, 520);
+  };
+
   return (
-    <div className="min-h-screen bg-gray-100 pb-10 print:bg-white print:pb-0 overflow-x-auto">
-      
-      {/* Navigation Controls - Screen Only */}
-      <div className="fixed bottom-8 right-8 z-50 flex gap-4 print:hidden">
-          <button 
-            onClick={() => setPage(1)}
-            className={`w-12 h-12 rounded-full shadow-lg flex items-center justify-center transition-all ${page === 1 ? 'bg-[#0e5b9e] text-white scale-110' : 'bg-white text-gray-600 hover:bg-gray-50'}`}
-          >
-             <span className="font-bold text-lg">1</span>
-          </button>
-           <button 
-            onClick={() => setPage(2)}
-            className={`w-12 h-12 rounded-full shadow-lg flex items-center justify-center transition-all ${page === 2 ? 'bg-[#0e5b9e] text-white scale-110' : 'bg-white text-gray-600 hover:bg-gray-50'}`}
-          >
-             <span className="font-bold text-lg">2</span>
-          </button>
-      </div>
-
-      {/* Floating Arrow Navigation */}
-      {page === 1 && (
-         <button 
-            onClick={() => setPage(2)}
-            className="hidden md:block fixed top-1/2 right-4 md:right-10 z-50 transform -translate-y-1/2 bg-white/90 hover:bg-white p-3 rounded-full shadow-xl text-[#0e5b9e] print:hidden transition-all hover:scale-110 border border-gray-100"
-            aria-label="Next Page"
-         >
-            <ChevronRight size={32} />
-         </button>
-       )}
-        {page === 2 && (
-         <button 
-            onClick={() => setPage(1)}
-            className="hidden md:block fixed top-1/2 left-4 md:left-10 z-50 transform -translate-y-1/2 bg-white/90 hover:bg-white p-3 rounded-full shadow-xl text-[#0e5b9e] print:hidden transition-all hover:scale-110 border border-gray-100"
-            aria-label="Previous Page"
-         >
-            <ChevronLeft size={32} />
-         </button>
-       )}
-
-
+    <div onWheel={handleWheel} className="relative w-full min-h-screen overflow-hidden overflow-x-auto bg-gray-100 print:bg-white print:pb-0 md:min-h-[calc(297mm+4rem)]">
+    <div className={`${page === 1 ? 'opacity-100 translate-y-0 scale-100 z-10' : 'pointer-events-none opacity-0 -translate-y-8 scale-[0.985] z-0'} absolute inset-0 w-full flex items-start justify-center px-0 py-0 transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] md:px-6 md:py-8 print:relative print:inset-auto print:flex print:transform-none print:opacity-100 print:pointer-events-auto print:z-auto print:p-0`}>
     {/* PAGE 1 */}
-    <div className={`${page === 1 ? 'block' : 'hidden'} print:block w-full md:w-[210mm] h-auto md:h-[297mm] min-h-screen md:min-h-[297mm] mx-auto bg-white shadow-lg print:shadow-none print:w-[210mm] print:h-[296mm] overflow-hidden text-gray-800 font-sans mb-8 print:mb-0 relative custom-page-break`}>
+    <div className="w-full md:w-[210mm] h-auto md:h-[297mm] min-h-screen md:min-h-[297mm] mx-auto bg-white shadow-lg print:shadow-none print:w-[210mm] print:h-[296mm] overflow-hidden text-gray-800 font-sans mb-0 print:mb-0 relative custom-page-break">
       {/* Header Section */}
       <header className="bg-[#0e5b9e] text-white px-6 pt-6 pb-6 relative print:bg-[#0e5b9e] print:text-white print:-webkit-print-color-adjust: exact">
         <div className="flex flex-col md:flex-row justify-between items-start">
@@ -147,7 +140,7 @@ const Resume = () => {
                   <li>Built and maintained core business logic in the 1Receipt Node.js/Express API and the React Native shopper app during internship, supporting digital receipt retrieval, tagging, local receipt sync, file/PDF upload, loyalty-card barcode flows, and wallet-ready user experiences.</li>
                   <li>Worked across AWS-backed platform services and mobile authentication/integration layers, using EC2, Lambda, DynamoDB, Cognito, S3, and SQS to support authentication, receipt/media handling, async processing, and production backend workflows.</li>
                   <li>Continued as a part-time contractor to extend the same API and shopper app codebases while adding the retailer tablet POS Manager, an Expo/React Native tablet app for digital receipt processing and retailer operations.</li>
-                  <li>Contributed retailer-facing features spanning retailer onboarding, ABN validation, receipt creation, shopper ID validation, camera/viewfinder workflows, and Clover POS integration through a custom native module.</li>
+                  <li>Contributed retailer-facing features spanning retailer onboarding, ABN validation, receipt creation, shopper ID validation, and Clover POS integration through a custom native module.</li>
                 </ul>
               </div>
 
@@ -269,10 +262,12 @@ const Resume = () => {
             Page 1 of 2
         </div>
     </div>
+    </div>
 
 
     {/* PAGE 2 */}
-    <div className={`${page === 2 ? 'block' : 'hidden'} print:block w-full md:w-[210mm] h-auto md:h-[297mm] min-h-screen md:min-h-[297mm] mx-auto bg-white shadow-lg print:shadow-none print:w-[210mm] print:h-[296mm] overflow-hidden text-gray-800 font-sans relative`}>
+    <div className={`${page === 2 ? 'opacity-100 translate-y-0 scale-100 z-10' : 'pointer-events-none opacity-0 translate-y-8 scale-[0.985] z-0'} absolute inset-0 w-full flex items-start justify-center px-0 py-0 transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] md:px-6 md:py-8 print:relative print:inset-auto print:flex print:transform-none print:opacity-100 print:pointer-events-auto print:z-auto print:p-0`}>
+    <div className="w-full md:w-[210mm] h-auto md:h-[297mm] min-h-screen md:min-h-[297mm] mx-auto bg-white shadow-lg print:shadow-none print:w-[210mm] print:h-[296mm] overflow-hidden text-gray-800 font-sans relative">
       
       {/* Optional Top Margin/Spacer for Page 2 */}
       <div className="h-16 w-full hidden md:block print:block"></div>
@@ -437,9 +432,10 @@ const Resume = () => {
       </div>
 
        {/* Footer Page 2 */}
-        <div className="absolute bottom-4 left-4 md:left-auto md:right-8 text-left md:text-right text-[13px] text-gray-400">
+    <div className="absolute bottom-4 left-4 md:left-auto md:right-8 text-left md:text-right text-[13px] text-gray-400">
             Page 2 of 2
         </div>
+    </div>
     </div>
     </div>
   );
