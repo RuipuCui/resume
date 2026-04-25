@@ -23,7 +23,7 @@ type CoverLetterContent = {
 }
 
 const STORAGE_KEY = 'cover-letter-template-v1'
-const COVER_LETTER_PDF_SCALE = 3
+const COVER_LETTER_PDF_SCALE = 2.2
 
 const defaultContent: CoverLetterContent = {
   pageLabel: 'Cover Letter',
@@ -142,17 +142,17 @@ function UnimelbCoverLetter() {
         scrollY: 0,
       })
 
-      const imageData = canvas.toDataURL('image/png')
+      const imageData = canvas.toDataURL('image/jpeg', 0.9)
       const pdf = new jsPDF({
         orientation: 'portrait',
         unit: 'mm',
         format: 'a4',
-        compress: false,
+        compress: true,
       })
 
       const pageWidth = pdf.internal.pageSize.getWidth()
       const pageHeight = pdf.internal.pageSize.getHeight()
-      pdf.addImage(imageData, 'PNG', 0, 0, pageWidth, pageHeight)
+      pdf.addImage(imageData, 'JPEG', 0, 0, pageWidth, pageHeight, undefined, 'MEDIUM')
 
       const blob = pdf.output('blob')
       const blobUrl = URL.createObjectURL(blob)
