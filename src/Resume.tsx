@@ -126,29 +126,32 @@ const Resume = () => {
                 </ul>
               </div>
 
-              {/* Quantum Max */}
+              {/* 1Receipt */}
               <div className="relative">
                 <div className="absolute -left-[31px] top-1.5 bg-white border-2 border-[#0e5b9e] w-4 h-4 rounded-full"></div>
                 <div className="flex justify-between items-baseline mb-1">
-                  <h4 className="font-bold text-gray-900 text-[15px]">Software Engineer</h4>
-                   <span className="text-[13px] text-[#0e5b9e] font-semibold whitespace-nowrap">01/2026 ~ 03/2026</span>
+                  <h4 className="font-bold text-gray-900 text-[15px]">Full-Stack Developer</h4>
+                   <span className="text-[13px] text-[#0e5b9e] font-semibold whitespace-nowrap">07/2025 ~ 05/2026</span>
                 </div>
-                <h5 className="font-semibold text-gray-700 mb-1 text-[13px]">Quantum Max - <span className="font-normal text-gray-600">Part-Time Contractor</span></h5>
-                {/* Tech Stack Tags - Filler */}
-                <div className="flex flex-wrap gap-1.5 mb-1">
-                    {['React', 'TypeScript', 'Node.js', 'Express.js', 'PostgreSQL', 'OpenAI API', 'JavaScript', 'HTML/CSS', 'AI Integration'].map(tech => (
+                <h5 className="font-semibold text-gray-700 mb-1 text-[13px]">1Receipt - Melbourne, Australia</h5>
+                <div className="text-[11px] text-slate-500 mb-1 font-medium">
+                  Internship <span className="text-slate-400 font-normal">(07/2025 ~ 11/2025)</span> • Part-Time Contractor <span className="text-slate-400 font-normal">(12/2025 ~ 05/2026)</span>
+                </div>
+                 {/* Tech Stack Tags */}
+                 <div className="flex flex-wrap gap-1.5 mb-1">
+                    {['React Native', 'Javascript', 'Node.js','AWS', 'Python', 'Clover SDK'].map(tech => (
                         <span key={tech} className="bg-blue-50 text-blue-700 text-[10px] px-1.5 py-0.5 rounded border border-blue-100">{tech}</span>
                     ))}
                 </div>
                 <ul className="list-disc list-outside ml-4 text-[13px] text-gray-600 space-y-0.5 leading-snug">
-                  <li>Built an AI-powered university learning platform with separate student, teacher, and admin experiences, covering course publishing, weekly content delivery, quizzes, and progress tracking.</li>
-                  <li>Developed full-stack features using React/Vite, Node.js, PostgreSQL, and Supabase, including role-based access, media storage, notifications, analytics, and profile management.</li>
-                  <li>Implemented AI workflows for converting lecture slides into structured knowledge units, generating quizzes and learning media, and providing contextual chat assistance for students.</li>
-                  <li>Designed interactive learning UX such as inline notes/highlights, AI actions on selected text, responsive dashboards, and course management tools for educators.</li>
+                  <li>Built and maintained core business logic in the 1Receipt Node.js/Express API and the React Native shopper app during internship, supporting digital receipt retrieval, tagging, local receipt sync, file/PDF upload, loyalty-card barcode flows, and wallet-ready user experiences.</li>
+                  <li>Worked across AWS-backed platform services and mobile authentication/integration layers, using EC2, Lambda, DynamoDB, Cognito, S3, and SQS to support authentication, receipt/media handling, async processing, and production backend workflows.</li>
+                  <li>Continued as a part-time contractor to extend the same API and shopper app codebases while adding the retailer tablet POS Manager, an Expo/React Native tablet app for digital receipt processing and retailer operations.</li>
+                  <li>Contributed retailer-facing features spanning retailer onboarding, ABN validation, receipt creation, shopper ID validation, camera/viewfinder workflows, and Clover POS integration through a custom native module.</li>
                 </ul>
               </div>
 
-               {/* Freelance */}
+              {/* Freelance */}
               <div className="relative">
                 <div className="absolute -left-[31px] top-1.5 bg-white border-2 border-[#0e5b9e] w-4 h-4 rounded-full"></div>
                 <div className="flex justify-between items-baseline mb-1">
@@ -170,12 +173,12 @@ const Resume = () => {
                     ))}
                 </div>
                 <ul className="list-disc list-outside ml-4 text-[13px] text-gray-600 space-y-0.5 leading-snug">
-                  <li>Delivered custom React/Vite web platforms for clients across premium furniture, building materials, and AI/education brands.</li>
-                  <li>Built full-stack catalog and CMS systems with admin dashboards, Express APIs, and Supabase-backed data, media, and content workflows.</li>
-                  <li>Implemented customer-facing features including product discovery, gated account portals, contact pipelines, and AI chat/voice integrations.</li>
-                  <li>Designed responsive bilingual marketing sites with polished UI, animation, and reusable component systems.</li>
+                  <li>Delivered custom React/Vite platforms for furniture, building materials, and AI/education clients.</li>
+                  <li>Built catalog and CMS systems with admin dashboards, Express APIs, and Supabase-backed data and media workflows.</li>
+                  <li>Implemented product discovery, gated portals, contact flows, AI chat/voice features, and bilingual responsive UI systems.</li>
                 </ul>
               </div>
+
             </div>
           </section>
         </div>
@@ -200,7 +203,7 @@ const Resume = () => {
                     <div>
                         <h4 className="font-semibold text-gray-800 mb-1 text-[13px]">Front-end</h4>
                         <div className="flex flex-wrap gap-2">
-                            {['React', 'React Native', 'Vue.js', 'HTML5/CSS3'].map(skill => (
+                            {['React', 'React Native', 'Vue.js'].map(skill => (
                                 <span key={skill} className="bg-sky-600 text-white text-[11px] px-2 py-1 rounded">{skill}</span>
                             ))}
                         </div>
@@ -285,30 +288,6 @@ const Resume = () => {
              {/* Continue visual line from previous page if needed, but separate block is fine */}
              <div className="space-y-4 relative border-l-2 border-slate-200 ml-3 pl-6 pb-2">
               
-              {/* 1Receipt */}
-              <div className="relative">
-                <div className="absolute -left-[31px] top-1.5 bg-white border-2 border-[#0e5b9e] w-4 h-4 rounded-full"></div>
-                <div className="flex justify-between items-baseline mb-1">
-                  <h4 className="font-bold text-gray-900 text-[15px]">Full-Stack Developer</h4>
-                   <span className="text-[13px] text-[#0e5b9e] font-semibold whitespace-nowrap">07/2025 ~ Now</span>
-                </div>
-                <h5 className="font-semibold text-gray-700 mb-1 text-[13px]">1Receipt - Melbourne, Australia</h5>
-                <div className="text-[11px] text-slate-500 mb-1 font-medium">
-                  Internship <span className="text-slate-400 font-normal">(07/2025 ~ 11/2025)</span> • Part-Time Contractor <span className="text-slate-400 font-normal">(12/2025 ~ Now)</span>
-                </div>
-                 {/* Tech Stack Tags - Filler */}
-                 <div className="flex flex-wrap gap-1.5 mb-1">
-                    {['React Native', 'JavaScript', 'Node.js', 'Express.js', 'Python', 'AWS'].map(tech => (
-                        <span key={tech} className="bg-blue-50 text-blue-700 text-[10px] px-1.5 py-0.5 rounded border border-blue-100">{tech}</span>
-                    ))}
-                </div>
-                <ul className="list-disc list-outside ml-4 text-[13px] text-gray-600 space-y-0.5 leading-snug">
-                  <li>Developed and optimised full-stack features (Express.js, React Native, Node.js), reducing page load times by 30% and improving user experience.</li>
-                  <li>Improved performance and scalability of web/mobile apps through clean, maintainable code.</li>
-                  <li>Integrated APIs and contributed to cloud-based solutions using AWS, e.g. EC2, Lambda, ECS, S3, SQS etc.</li>
-                </ul>
-              </div>
-              
               {/* Beijing Smartchip */}
               <div className="relative">
                 <div className="absolute -left-[31px] top-1.5 bg-white border-2 border-[#0e5b9e] w-4 h-4 rounded-full"></div>
@@ -340,6 +319,25 @@ const Resume = () => {
               <h3 className="text-lg font-bold uppercase tracking-wide">Project Experience</h3>
             </div>
              <div className="space-y-4 relative border-l-2 border-slate-200 ml-3 pl-6 pb-2">
+                {/* Quantum Max */}
+                <div className="relative">
+                    <div className="absolute -left-[31px] top-1.5 bg-white border-2 border-[#0e5b9e] w-4 h-4 rounded-full"></div>
+                    <div className="flex justify-between items-baseline mb-1">
+                    <h4 className="font-bold text-gray-900 leading-tight text-[15px]">
+                        Quantum Max Learning Platform <span className="whitespace-nowrap">AI Engineer</span>
+                    </h4>
+                    <span className="text-[13px] text-[#0e5b9e] font-semibold whitespace-nowrap ml-2">01/2026 ~ 03/2026</span>
+                    </div>
+                    <div className="flex flex-wrap gap-1 mb-1">
+                        {['React', 'TypeScript', 'Node.js', 'PostgreSQL', 'OpenAI API'].map((tech) => (
+                            <span key={tech} className="bg-blue-50 text-blue-700 text-[10px] px-1.5 py-0.5 rounded border border-blue-100">{tech}</span>
+                        ))}
+                    </div>
+                    <p className="text-[13px] text-gray-600">
+                    Built AI-powered learning workflows for a university platform, including slide-to-knowledge-unit generation, AI-assisted quiz creation, and contextual student chat over course content.
+                    </p>
+                </div>
+
                 {/* University Major Prospects */}
                 <div className="relative">
                     <div className="absolute -left-[31px] top-1.5 bg-white border-2 border-[#0e5b9e] w-4 h-4 rounded-full"></div>
@@ -448,4 +446,3 @@ const Resume = () => {
 };
 
 export default Resume;
-
