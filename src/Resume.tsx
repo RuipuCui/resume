@@ -5,6 +5,8 @@ const Resume = () => {
   const [page, setPage] = useState(1);
   const wheelDeltaRef = useRef(0);
   const isSwitchingRef = useRef(false);
+  const scrollBoundaryBuffer = 4;
+  const pageSwitchThreshold = 80;
 
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -17,17 +19,32 @@ const Resume = () => {
       return;
     }
 
-    wheelDeltaRef.current += event.deltaY;
+    const scrollElement = document.scrollingElement || document.documentElement;
+    const scrollTop = scrollElement.scrollTop;
+    const maxScrollTop = scrollElement.scrollHeight - scrollElement.clientHeight;
+    const isAtTop = scrollTop <= scrollBoundaryBuffer;
+    const isAtBottom = scrollTop >= maxScrollTop - scrollBoundaryBuffer;
+    const isScrollingDown = event.deltaY > 0;
+    const isScrollingUp = event.deltaY < 0;
+    const canSwitchDown = page === 1 && isScrollingDown && isAtBottom;
+    const canSwitchUp = page === 2 && isScrollingUp && isAtTop;
 
-    if (Math.abs(wheelDeltaRef.current) < 45) {
+    if (!canSwitchDown && !canSwitchUp) {
+      wheelDeltaRef.current = 0;
       return;
     }
 
-    if (wheelDeltaRef.current > 0 && page === 1) {
+    wheelDeltaRef.current += event.deltaY;
+
+    if (Math.abs(wheelDeltaRef.current) < pageSwitchThreshold) {
+      return;
+    }
+
+    if (canSwitchDown) {
       event.preventDefault();
       isSwitchingRef.current = true;
       setPage(2);
-    } else if (wheelDeltaRef.current < 0 && page === 2) {
+    } else if (canSwitchUp) {
       event.preventDefault();
       isSwitchingRef.current = true;
       setPage(1);
@@ -128,7 +145,7 @@ const Resume = () => {
                 </div>
                 <h5 className="font-semibold text-gray-700 mb-1 text-[13px]">1Receipt - Melbourne, Australia</h5>
                 <div className="text-[11px] text-slate-500 mb-1 font-medium">
-                  Internship <span className="text-slate-400 font-normal">(07/2025 ~ 11/2025)</span> • Part-Time Contractor <span className="text-slate-400 font-normal">(12/2025 ~ 05/2026)</span>
+                  Internship <span className="text-slate-400 font-normal">(07/2025 ~ Now)</span> • Part-Time Contractor <span className="text-slate-400 font-normal">(12/2025 ~ 05/2026)</span>
                 </div>
                  {/* Tech Stack Tags */}
                  <div className="flex flex-wrap gap-1.5 mb-1">
