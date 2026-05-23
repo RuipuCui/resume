@@ -24,6 +24,7 @@ type CoverLetterContent = {
 
 const STORAGE_KEY = 'cover-letter-template-v1'
 const COVER_LETTER_PDF_SCALE = 2.2
+const DEFAULT_PDF_COMPANY_SLUG = 'company'
 
 const defaultContent: CoverLetterContent = {
   pageLabel: 'Cover Letter',
@@ -56,6 +57,21 @@ function loadInitialContent(): CoverLetterContent {
   } catch {
     return defaultContent
   }
+}
+
+function createCompanySlug(companyName: string) {
+  return (
+    companyName
+      .trim()
+      .toLowerCase()
+      .replace(/&/g, ' and ')
+      .replace(/[^a-z0-9]+/g, '-')
+      .replace(/^-+|-+$/g, '') || DEFAULT_PDF_COMPANY_SLUG
+  )
+}
+
+function createPdfFilename(content: CoverLetterContent) {
+  return `nolan-cui-cover-letter-${createCompanySlug(content.roleSubtitle)}.pdf`
 }
 
 function UnimelbCoverLetter() {
@@ -156,14 +172,10 @@ function UnimelbCoverLetter() {
 
       const blob = pdf.output('blob')
       const blobUrl = URL.createObjectURL(blob)
-      const previewWindow = window.open(blobUrl, '_blank')
-
-      if (!previewWindow) {
-        const link = document.createElement('a')
-        link.href = blobUrl
-        link.download = 'nolan-cui-cover-letter-uwa.pdf'
-        link.click()
-      }
+      const link = document.createElement('a')
+      link.href = blobUrl
+      link.download = createPdfFilename(content)
+      link.click()
 
       window.setTimeout(() => URL.revokeObjectURL(blobUrl), 60_000)
     } catch (error) {
@@ -192,7 +204,7 @@ function UnimelbCoverLetter() {
           aria-label="Download cover letter as PDF"
         >
           <Download size={16} />
-          <span>{isExportingPdf ? 'Preparing PDF...' : 'Preview PDF'}</span>
+          <span>{isExportingPdf ? 'Preparing PDF...' : 'Download PDF'}</span>
         </button>
       </div>
 
