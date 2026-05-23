@@ -24,6 +24,7 @@ type CoverLetterContent = {
 
 const STORAGE_KEY = 'cover-letter-template-v1'
 const COVER_LETTER_PDF_SCALE = 2.2
+const COVER_LETTER_PDF_MAX_BYTES = 512 * 1024
 const DEFAULT_PDF_COMPANY_SLUG = 'company'
 
 const defaultContent: CoverLetterContent = {
@@ -72,6 +73,59 @@ function createCompanySlug(companyName: string) {
 
 function createPdfFilename(content: CoverLetterContent) {
   return `nolan-cui-cover-letter-${createCompanySlug(content.roleSubtitle)}.pdf`
+}
+
+function createPdfBlobFromImage(imageData: string) {
+  const pdf = new jsPDF({
+    orientation: 'portrait',
+    unit: 'mm',
+    format: 'a4',
+    compress: true,
+  })
+
+  const pageWidth = pdf.internal.pageSize.getWidth()
+  const pageHeight = pdf.internal.pageSize.getHeight()
+  pdf.addImage(imageData, 'JPEG', 0, 0, pageWidth, pageHeight, undefined, 'MEDIUM')
+
+  return pdf.output('blob')
+}
+
+async function createCompressedPdfBlob(pageElement: HTMLDivElement) {
+  const baseScale = Math.min(Math.max(window.devicePixelRatio || 1, COVER_LETTER_PDF_SCALE), 4)
+  const scales = Array.from(
+    new Set([baseScale, 2.2, 2, 1.75, 1.5, 1.25, 1, 0.85].filter((scale) => scale <= baseScale))
+  )
+  const qualities = [0.86, 0.78, 0.7, 0.62, 0.54, 0.46, 0.38]
+  let smallestBlob: Blob | null = null
+
+  for (const scale of scales) {
+    const canvas = await html2canvas(pageElement, {
+      backgroundColor: '#ffffff',
+      scale,
+      useCORS: true,
+      logging: false,
+      width: pageElement.offsetWidth,
+      height: pageElement.offsetHeight,
+      windowWidth: pageElement.offsetWidth,
+      windowHeight: pageElement.offsetHeight,
+      scrollX: 0,
+      scrollY: 0,
+    })
+
+    for (const quality of qualities) {
+      const blob = createPdfBlobFromImage(canvas.toDataURL('image/jpeg', quality))
+
+      if (!smallestBlob || blob.size < smallestBlob.size) {
+        smallestBlob = blob
+      }
+
+      if (blob.size <= COVER_LETTER_PDF_MAX_BYTES) {
+        return blob
+      }
+    }
+  }
+
+  return smallestBlob
 }
 
 function UnimelbCoverLetter() {
@@ -145,32 +199,18 @@ function UnimelbCoverLetter() {
         })
       })
 
-      const canvas = await html2canvas(pageRef.current, {
-        backgroundColor: '#ffffff',
-        scale: Math.min(Math.max(window.devicePixelRatio || 1, COVER_LETTER_PDF_SCALE), 4),
-        useCORS: true,
-        logging: false,
-        width: pageRef.current.offsetWidth,
-        height: pageRef.current.offsetHeight,
-        windowWidth: pageRef.current.offsetWidth,
-        windowHeight: pageRef.current.offsetHeight,
-        scrollX: 0,
-        scrollY: 0,
-      })
+      const blob = await createCompressedPdfBlob(pageRef.current)
 
-      const imageData = canvas.toDataURL('image/jpeg', 0.9)
-      const pdf = new jsPDF({
-        orientation: 'portrait',
-        unit: 'mm',
-        format: 'a4',
-        compress: true,
-      })
+      if (!blob) {
+        throw new Error('No PDF blob was generated.')
+      }
 
-      const pageWidth = pdf.internal.pageSize.getWidth()
-      const pageHeight = pdf.internal.pageSize.getHeight()
-      pdf.addImage(imageData, 'JPEG', 0, 0, pageWidth, pageHeight, undefined, 'MEDIUM')
+      if (blob.size > COVER_LETTER_PDF_MAX_BYTES) {
+        console.warn(
+          `Generated PDF is ${blob.size} bytes, which is above the ${COVER_LETTER_PDF_MAX_BYTES} byte target.`
+        )
+      }
 
-      const blob = pdf.output('blob')
       const blobUrl = URL.createObjectURL(blob)
       const link = document.createElement('a')
       link.href = blobUrl
