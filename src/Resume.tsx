@@ -582,6 +582,15 @@ const EducationAndActivities = () => (
             <li>Co-organised university hackathon with 150+ participants, managing platform development and event logistics.</li>
           </ul>
         </div>
+        <div>
+          <h4 className="font-bold text-gray-900 text-[15px]">AWS User Group Melbourne</h4>
+          <div className="text-[13px] text-gray-800 italic">Community Member & Presenter</div>
+          <div className="text-[11px] text-[#0e5b9e] font-semibold mt-1 mb-2">06/2026 ~ Now</div>
+          <ul className="text-[13px] text-gray-600 list-disc ml-4 space-y-0.5 leading-snug">
+            <li>Attend monthly meetups to exchange AWS ecosystem knowledge with Melbourne cloud practitioners.</li>
+            <li>Volunteer as a one-time presenter, contributing to community knowledge sharing and technical discussion.</li>
+          </ul>
+        </div>
       </div>
     </section>
   </div>
