@@ -144,7 +144,7 @@ const defaultCopy: ResumeCopy = {
     receipt: [
       'Built and maintained core business logic in the 1Receipt Node.js/Express API and the React Native shopper app, supporting receipt retrieval, tagging, local receipt sync, file/PDF upload, loyalty-card barcode flows, and wallet-ready user experiences.',
       'Worked across AWS-backed platform services and mobile authentication/integration layers, using EC2, Lambda, DynamoDB, Cognito, S3, and SQS for receipt/media handling, async processing, and backend workflows.',
-      'Continued as a part-time contractor to extend the API and shopper app while adding the retailer tablet POS Manager for digital receipt processing and retailer operations.',
+      'Continued as a junior software developer to extend the API and shopper app while adding the retailer tablet POS Manager for digital receipt processing and retailer operations.',
       'Contributed retailer-facing features spanning retailer onboarding, ABN validation, receipt creation, shopper ID validation, and Clover POS integration through a custom native module.',
     ],
     freelance: [
@@ -477,7 +477,7 @@ const buildWorkItems = (copy: ResumeCopy): Record<
   researchAssistant: {
     title: 'Research Assistant (Full-Stack Developer)',
     date: '12/2025 ~ Now',
-    organization: 'University of Melbourne - Part-Time',
+    organization: 'University of Melbourne',
     links: [{ label: 'View Project', href: 'https://biologic.substack.com/', icon: 'globe' }],
     tags: ['Vue.js', 'JavaScript', 'Python', 'Flask', 'HTML/CSS', 'Docker'],
     bullets: copy.work.researchAssistant,
@@ -486,7 +486,7 @@ const buildWorkItems = (copy: ResumeCopy): Record<
     title: 'Full-Stack Developer',
     date: '07/2025 ~ 05/2026',
     organization: '1Receipt - Melbourne, Australia',
-    meta: 'Internship (07/2025 ~ Now) - Part-Time Contractor (12/2025 ~ 05/2026)',
+    meta: 'Internship (07/2025 ~ Now) - junior software developer (12/2025 ~ Now)',
     tags: ['React Native', 'Javascript', 'Node.js', 'AWS', 'Python', 'Clover SDK'],
     bullets: copy.work.receipt,
   },
