@@ -1,4 +1,4 @@
-import { type ReactNode, useEffect, useRef, useState } from 'react';
+import { type ReactNode, useEffect, useState } from 'react';
 import {
   Award,
   Briefcase,
@@ -77,22 +77,23 @@ const baseProjects: TimelineItem[] = [
     description:
       'Built a cloud-native data pipeline to analyse social media sentiment (Mastodon/Reddit) regarding IT majors. Implemented serverless harvesters, an NLP sentiment analysis service, and an interactive frontend using Jupyter/Voila on Kubernetes.',
   },
-  {
-    title: 'Shared Whiteboard (Java RMI)',
-    role: 'Java Developer',
-    date: '03/2025 ~ 06/2025',
-    links: [
-      {
-        label: 'View Code',
-        href: 'https://github.com/RuipuCui/Share_Canva_Board',
-        icon: 'github',
-      },
-    ],
-    tags: ['Java', 'RMI', 'Swing', 'Multithreading'],
-    description:
-      'Built a distributed real-time collaborative system using Java RMI, implementing concurrency control and synchronized multi-user state management. Features include synchronized multi-user drawing, chat functionality, and administrative controls with robust state synchronization.',
-  },
 ];
+
+const sharedWhiteboardProject: TimelineItem = {
+  title: 'Shared Whiteboard (Java RMI)',
+  role: 'Java Developer',
+  date: '03/2025 ~ 06/2025',
+  links: [
+    {
+      label: 'View Code',
+      href: 'https://github.com/RuipuCui/Share_Canva_Board',
+      icon: 'github',
+    },
+  ],
+  tags: ['Java', 'RMI', 'Swing', 'Multithreading'],
+  description:
+    'Built a distributed real-time collaborative system using Java RMI, implementing concurrency control and synchronized multi-user state management. Features include synchronized multi-user drawing, chat functionality, and administrative controls with robust state synchronization.',
+};
 
 const cProjects: TimelineItem[] = [
   {
@@ -113,7 +114,7 @@ const cProjects: TimelineItem[] = [
       'Built a command-line IMAP email client in C, supporting both plain and TLS-encrypted connections.',
     ],
   },
-  { ...baseProjects[2], role: undefined },
+  { ...sharedWhiteboardProject, role: undefined },
 ];
 
 const defaultCopy: ResumeCopy = {
@@ -216,7 +217,6 @@ const variantCopy: Record<ResumeVariant, ResumeCopy> = {
         description:
           'Built an NLP sentiment-analysis pipeline over Mastodon/Reddit data, combining Python harvesters, PyTorch-based analysis, ElasticSearch indexing, and an interactive Jupyter/Voila frontend.',
       },
-      baseProjects[2],
     ],
   },
   data: {
@@ -269,7 +269,6 @@ const variantCopy: Record<ResumeVariant, ResumeCopy> = {
         description:
           'Built course-content processing workflows that transform slide material into structured knowledge units, quizzes, and contextual chat data for students.',
       },
-      baseProjects[2],
     ],
   },
   cloud: {
@@ -320,7 +319,6 @@ const variantCopy: Record<ResumeVariant, ResumeCopy> = {
         ],
       },
       baseProjects[0],
-      baseProjects[2],
     ],
   },
   c: {
@@ -476,7 +474,7 @@ const buildWorkItems = (copy: ResumeCopy): Record<
 > => ({
   researchAssistant: {
     title: 'Research Assistant (Full-Stack Developer)',
-    date: '12/2025 ~ Now',
+    date: '12/2025 ~ 07/2026',
     organization: 'University of Melbourne',
     links: [{ label: 'View Project', href: 'https://biologic.substack.com/', icon: 'globe' }],
     tags: ['Vue.js', 'JavaScript', 'Python', 'Flask', 'HTML/CSS', 'Docker'],
@@ -484,9 +482,9 @@ const buildWorkItems = (copy: ResumeCopy): Record<
   },
   receipt: {
     title: 'Full-Stack Developer',
-    date: '07/2025 ~ 05/2026',
+    date: '07/2025 ~ 07/2026',
     organization: '1Receipt - Melbourne, Australia',
-    meta: 'Internship (07/2025 ~ Now) - junior software developer (12/2025 ~ Now)',
+    meta: 'Internship (07/2025 ~ 07/2026) - junior software developer (12/2025 ~ 07/2026)',
     tags: ['React Native', 'Javascript', 'Node.js', 'AWS', 'Python', 'Clover SDK'],
     bullets: copy.work.receipt,
   },
@@ -600,59 +598,11 @@ const Resume = ({ variant = 'default' }: { variant?: ResumeVariant }) => {
   const copy = getCopy(variant);
   const workItems = buildWorkItems(copy);
   const [page, setPage] = useState(1);
-  const wheelDeltaRef = useRef(0);
-  const isSwitchingRef = useRef(false);
-  const scrollBoundaryBuffer = 4;
-  const pageSwitchThreshold = 80;
   const isCVariant = variant === 'c';
 
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
-    wheelDeltaRef.current = 0;
   }, [page]);
-
-  const handleWheel = (event: React.WheelEvent<HTMLDivElement>) => {
-    if (isSwitchingRef.current) {
-      event.preventDefault();
-      return;
-    }
-
-    const scrollElement = document.scrollingElement || document.documentElement;
-    const scrollTop = scrollElement.scrollTop;
-    const maxScrollTop = scrollElement.scrollHeight - scrollElement.clientHeight;
-    const isAtTop = scrollTop <= scrollBoundaryBuffer;
-    const isAtBottom = scrollTop >= maxScrollTop - scrollBoundaryBuffer;
-    const isScrollingDown = event.deltaY > 0;
-    const isScrollingUp = event.deltaY < 0;
-    const canSwitchDown = page === 1 && isScrollingDown && isAtBottom;
-    const canSwitchUp = page === 2 && isScrollingUp && isAtTop;
-
-    if (!canSwitchDown && !canSwitchUp) {
-      wheelDeltaRef.current = 0;
-      return;
-    }
-
-    wheelDeltaRef.current += event.deltaY;
-
-    if (Math.abs(wheelDeltaRef.current) < pageSwitchThreshold) {
-      return;
-    }
-
-    if (canSwitchDown) {
-      event.preventDefault();
-      isSwitchingRef.current = true;
-      setPage(2);
-    } else if (canSwitchUp) {
-      event.preventDefault();
-      isSwitchingRef.current = true;
-      setPage(1);
-    }
-
-    window.setTimeout(() => {
-      isSwitchingRef.current = false;
-      wheelDeltaRef.current = 0;
-    }, 520);
-  };
 
   const page1Main = isCVariant ? (
     <>
@@ -691,7 +641,26 @@ const Resume = ({ variant = 'default' }: { variant?: ResumeVariant }) => {
   );
 
   return (
-    <div onWheel={handleWheel} className="relative w-full min-h-screen overflow-hidden overflow-x-auto bg-gray-100 print:bg-white print:pb-0 md:min-h-[calc(297mm+4rem)]">
+    <div className="relative w-full min-h-screen overflow-hidden overflow-x-auto bg-gray-100 print:bg-white print:pb-0 md:min-h-[calc(297mm+4rem)]">
+      <div className="fixed right-6 top-6 z-50 flex gap-3 print:hidden">
+        {[1, 2].map((pageNumber) => (
+          <button
+            key={pageNumber}
+            type="button"
+            onClick={() => setPage(pageNumber)}
+            className={`flex h-11 w-11 items-center justify-center rounded-full border text-sm font-bold shadow-lg transition-all ${
+              page === pageNumber
+                ? 'border-[#0e5b9e] bg-[#0e5b9e] text-white scale-105'
+                : 'border-gray-200 bg-white text-gray-600 hover:border-[#0e5b9e] hover:text-[#0e5b9e]'
+            }`}
+            aria-label={`Go to page ${pageNumber}`}
+            aria-current={page === pageNumber ? 'page' : undefined}
+          >
+            {pageNumber}
+          </button>
+        ))}
+      </div>
+
       <div className={`${page === 1 ? 'opacity-100 translate-y-0 scale-100 z-10' : 'pointer-events-none opacity-0 -translate-y-8 scale-[0.985] z-0'} absolute inset-0 w-full flex items-start justify-center px-0 py-0 transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] md:px-6 md:py-8 print:relative print:inset-auto print:flex print:transform-none print:opacity-100 print:pointer-events-auto print:z-auto print:p-0`}>
         <div className="w-full md:w-[210mm] h-auto md:h-[297mm] min-h-screen md:min-h-[297mm] mx-auto bg-white shadow-lg print:shadow-none print:w-[210mm] print:h-[296mm] overflow-hidden text-gray-800 font-sans mb-0 print:mb-0 relative custom-page-break">
           <header className="bg-[#0e5b9e] text-white px-6 pt-6 pb-6 relative print:bg-[#0e5b9e] print:text-white print:-webkit-print-color-adjust: exact">
