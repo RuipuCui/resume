@@ -44,6 +44,7 @@ type ResumeCopy = {
   };
   capabilities: string[];
   work: {
+    atlastix: string[];
     researchAssistant: string[];
     receipt: string[];
     freelance: string[];
@@ -120,7 +121,7 @@ const cProjects: TimelineItem[] = [
 const defaultCopy: ResumeCopy = {
   title: 'Software Engineer',
   summary:
-    'MIT student at the University of Melbourne with strong hands-on industry experience building full-stack products. Strong focus on scalable systems, practical problem-solving, and delivering polished user-facing solutions.',
+    'Recent Master of Information Technology graduate from the University of Melbourne with hands-on experience delivering enterprise AI platforms, client software solutions, and full-stack products. Strong in scalable systems, practical problem-solving, and translating complex requirements into polished user experiences.',
   skills: {
     languages: ['Python', 'Java', 'C/C++', 'JavaScript', 'TypeScript', 'SQL'],
     frontend: ['React', 'React Native', 'Vue.js'],
@@ -137,6 +138,12 @@ const defaultCopy: ResumeCopy = {
     'Cross-Platform Development',
   ],
   work: {
+    atlastix: [
+      'Contribute to Atlastix\'s multi-tenant enterprise AI platform using React/TypeScript, FastAPI, PostgreSQL, Kafka, Temporal, Keycloak, and MCP.',
+      'Engineer AI-assisted workflow authoring across a visual canvas and custom DSL, with live agent-editor synchronisation, validation, human approval, and reviewable diffs.',
+      'Extend the editor with parser-backed autocomplete, variable tracing, go-to-definition, reusable workflow components, execution overlays, and integrated AI chat while improving large-workflow performance and reliability.',
+      'Lead custom enterprise client solutions using React, FastAPI, PostgreSQL, and AWS, working directly with stakeholders to clarify requirements, demonstrate progress, and communicate technical trade-offs.',
+    ],
     researchAssistant: [
       'Developed and maintained a full-stack educational assessment platform (Vue.js, Vite, Python, Flask) for creating, delivering, and grading interactive logic-based questions.',
       'Built and integrated frontend-backend workflows for autograding, rubric editing, student answer retrieval, and ExNet/ExFlow question management.',
@@ -168,7 +175,7 @@ const variantCopy: Record<ResumeVariant, ResumeCopy> = {
     ...defaultCopy,
     title: 'Software Engineer',
     summary:
-      'MIT student and full-stack engineer focused on AI-enabled products, LLM workflows, NLP-backed analysis, and practical automation. Strong experience connecting model-driven features with production web, mobile, and backend systems.',
+      'Recent Master of Information Technology graduate and software engineer focused on enterprise AI platforms, agent-assisted workflows, LLM integrations, and practical automation. Experienced in connecting AI capabilities with production web, mobile, and backend systems.',
     skills: {
       ...defaultCopy.skills,
       languages: ['Python', 'JavaScript', 'TypeScript', 'SQL', 'Java', 'C/C++'],
@@ -223,7 +230,7 @@ const variantCopy: Record<ResumeVariant, ResumeCopy> = {
     ...defaultCopy,
     title: 'Software Engineer',
     summary:
-      'MIT student and full-stack engineer focused on data-intensive applications, ETL-style processing, database-backed products, and reliable data flows across web, mobile, and cloud services.',
+      'Recent Master of Information Technology graduate and software engineer focused on data-intensive applications, processing pipelines, database-backed products, and reliable data flows across web, mobile, and cloud systems.',
     skills: {
       ...defaultCopy.skills,
       languages: ['Python', 'SQL', 'JavaScript', 'TypeScript', 'Java', 'C/C++'],
@@ -275,7 +282,7 @@ const variantCopy: Record<ResumeVariant, ResumeCopy> = {
     ...defaultCopy,
     title: 'Software Engineer',
     summary:
-      'MIT student and software engineer focused on cloud-native systems, backend infrastructure, serverless workflows, and scalable product delivery across AWS, Docker, and Kubernetes environments.',
+      'Recent Master of Information Technology graduate and software engineer focused on cloud-native systems, backend infrastructure, serverless workflows, and scalable delivery across AWS, Docker, and Kubernetes environments.',
     skills: {
       ...defaultCopy.skills,
       backend: ['Node.js', 'Express.js', 'Flask', 'PostgreSQL', 'DynamoDB', 'ElasticSearch'],
@@ -325,7 +332,7 @@ const variantCopy: Record<ResumeVariant, ResumeCopy> = {
     ...defaultCopy,
     title: 'Software Engineer',
     summary:
-      'MIT student at the University of Melbourne with hands-on experience across systems programming, full-stack products, distributed systems, and practical software delivery.',
+      'Recent Master of Information Technology graduate with hands-on experience across systems programming, full-stack products, distributed systems, and enterprise software delivery.',
     skills: {
       ...defaultCopy.skills,
       languages: ['Python', 'Java', 'C/C++', 'JavaScript', 'TypeScript', 'SQL'],
@@ -364,12 +371,14 @@ const SectionTitle = ({
   icon,
   children,
   className = '',
+  dense = false,
 }: {
   icon: ReactNode;
   children: ReactNode;
   className?: string;
+  dense?: boolean;
 }) => (
-  <div className={`flex items-center gap-2 mb-3 text-[#0e5b9e] ${className}`}>
+  <div className={`flex items-center gap-2 text-[#0e5b9e] ${dense ? 'mb-2' : 'mb-3'} ${className}`}>
     {icon}
     <h3 className="text-lg font-bold uppercase tracking-wide">{children}</h3>
   </div>
@@ -388,7 +397,7 @@ const TagList = ({ tags }: { tags: string[] }) => (
   </div>
 );
 
-const TimelineEntry = ({ item }: { item: TimelineItem }) => (
+const TimelineEntry = ({ item, dense = false }: { item: TimelineItem; dense?: boolean }) => (
   <div className="relative">
     <div className="absolute -left-[31px] top-1.5 bg-white border-2 border-[#0e5b9e] w-4 h-4 rounded-full"></div>
     <div className="flex justify-between items-baseline mb-1 gap-2">
@@ -428,7 +437,7 @@ const TimelineEntry = ({ item }: { item: TimelineItem }) => (
     )}
     <TagList tags={item.tags} />
     {item.bullets ? (
-      <ul className="list-disc list-outside ml-4 text-[13px] text-gray-600 space-y-0.5 leading-snug">
+      <ul className={`list-disc list-outside ml-4 text-[13px] text-gray-600 leading-snug ${dense ? 'space-y-0' : 'space-y-0.5'}`}>
         {item.bullets.map((bullet) => (
           <li key={bullet}>{bullet}</li>
         ))}
@@ -439,10 +448,10 @@ const TimelineEntry = ({ item }: { item: TimelineItem }) => (
   </div>
 );
 
-const Timeline = ({ items }: { items: TimelineItem[] }) => (
-  <div className="space-y-4 relative border-l-2 border-slate-200 ml-3 pl-6 pb-2">
+const Timeline = ({ items, dense = false }: { items: TimelineItem[]; dense?: boolean }) => (
+  <div className={`relative border-l-2 border-slate-200 ml-3 pl-6 ${dense ? 'space-y-2 pb-0' : 'space-y-4 pb-2'}`}>
     {items.map((item) => (
-      <TimelineEntry key={item.title} item={item} />
+      <TimelineEntry key={item.title} item={item} dense={dense} />
     ))}
   </div>
 );
@@ -451,14 +460,16 @@ const SkillGroup = ({
   title,
   items,
   className,
+  dense = false,
 }: {
   title: string;
   items: string[];
   className: string;
+  dense?: boolean;
 }) => (
   <div>
-    <h4 className="font-semibold text-gray-800 mb-1 text-[13px]">{title}</h4>
-    <div className="flex flex-wrap gap-2">
+    <h4 className={`font-semibold text-gray-800 text-[13px] ${dense ? 'mb-0.5' : 'mb-1'}`}>{title}</h4>
+    <div className={`flex flex-wrap ${dense ? 'gap-1.5' : 'gap-2'}`}>
       {items.map((skill) => (
         <span key={skill} className={`${className} text-white text-[11px] px-2 py-1 rounded`}>
           {skill}
@@ -469,9 +480,16 @@ const SkillGroup = ({
 );
 
 const buildWorkItems = (copy: ResumeCopy): Record<
-  'researchAssistant' | 'receipt' | 'freelance' | 'smartchip',
+  'atlastix' | 'researchAssistant' | 'receipt' | 'freelance' | 'smartchip',
   TimelineItem
 > => ({
+  atlastix: {
+    title: 'Junior AI Developer',
+    date: '07/2026 ~ Now',
+    organization: 'Atlastix - Melbourne, Australia',
+    tags: ['React', 'TypeScript', 'Python', 'FastAPI', 'PostgreSQL', 'AWS', 'Temporal'],
+    bullets: copy.work.atlastix,
+  },
   researchAssistant: {
     title: 'Research Assistant (Full-Stack Developer)',
     date: '12/2025 ~ 07/2026',
@@ -509,21 +527,29 @@ const buildWorkItems = (copy: ResumeCopy): Record<
   },
 });
 
-const Sidebar = ({ copy }: { copy: ResumeCopy }) => (
-  <div className="w-full md:w-1/3 space-y-6 print:w-1/3 print:text-sm">
+const Sidebar = ({
+  copy,
+  widthClass = 'md:w-1/3 print:w-1/3',
+  dense = false,
+}: {
+  copy: ResumeCopy;
+  widthClass?: string;
+  dense?: boolean;
+}) => (
+  <div className={`w-full ${widthClass} ${dense ? 'space-y-4' : 'space-y-6'} print:text-sm`}>
     <section>
-      <SectionTitle icon={<Code size={20} />}>Skills</SectionTitle>
-      <div className="space-y-4">
-        <SkillGroup title="Programming Languages" items={copy.skills.languages} className="bg-[#0e5b9e]" />
-        <SkillGroup title="Front-end" items={copy.skills.frontend} className="bg-sky-600" />
-        <SkillGroup title="Back-end & Databases" items={copy.skills.backend} className="bg-sky-700" />
-        <SkillGroup title="DevOps & AI" items={copy.skills.devops} className="bg-slate-600" />
+      <SectionTitle icon={<Code size={20} />} dense={dense}>Skills</SectionTitle>
+      <div className={dense ? 'space-y-3' : 'space-y-4'}>
+        <SkillGroup title="Programming Languages" items={copy.skills.languages} className="bg-[#0e5b9e]" dense={dense} />
+        <SkillGroup title="Front-end" items={copy.skills.frontend} className="bg-sky-600" dense={dense} />
+        <SkillGroup title="Back-end & Databases" items={copy.skills.backend} className="bg-sky-700" dense={dense} />
+        <SkillGroup title="DevOps & AI" items={copy.skills.devops} className="bg-slate-600" dense={dense} />
       </div>
     </section>
 
-    <section className="mt-8">
-      <SectionTitle icon={<Zap size={20} />}>Proven Capability</SectionTitle>
-      <div className="flex flex-wrap gap-2">
+    <section className={dense ? 'mt-5' : 'mt-8'}>
+      <SectionTitle icon={<Zap size={20} />} dense={dense}>Proven Capability</SectionTitle>
+      <div className={`flex flex-wrap ${dense ? 'gap-1.5' : 'gap-2'}`}>
         {copy.capabilities.map((skill) => (
           <span key={skill} className="bg-indigo-500 text-white text-[11px] px-2 py-1 rounded">
             {skill}
@@ -532,8 +558,8 @@ const Sidebar = ({ copy }: { copy: ResumeCopy }) => (
       </div>
     </section>
 
-    <section className="mt-6">
-      <SectionTitle icon={<Trophy size={20} />}>Certifications</SectionTitle>
+    <section className={dense ? 'mt-4' : 'mt-6'}>
+      <SectionTitle icon={<Trophy size={20} />} dense={dense}>Certifications</SectionTitle>
       <div className="space-y-2">
         <div className="bg-amber-50 border border-amber-200 rounded p-2">
           <p className="font-semibold text-gray-900 text-[12px]">AWS Certified Cloud Practitioner</p>
@@ -544,8 +570,8 @@ const Sidebar = ({ copy }: { copy: ResumeCopy }) => (
   </div>
 );
 
-const EducationAndActivities = () => (
-  <div className="w-full md:w-1/3 space-y-6 print:w-1/3 print:text-sm">
+const EducationAndActivities = ({ widthClass = 'md:w-1/3 print:w-1/3' }: { widthClass?: string }) => (
+  <div className={`w-full ${widthClass} space-y-6 print:text-sm`}>
     <section>
       <SectionTitle icon={<GraduationCap size={20} />}>Education</SectionTitle>
       <div className="space-y-4">
@@ -618,7 +644,7 @@ const Resume = ({ variant = 'default' }: { variant?: ResumeVariant }) => {
   ) : (
     <section>
       <SectionTitle icon={<Briefcase size={20} />}>Work Experience</SectionTitle>
-      <Timeline items={[workItems.researchAssistant, workItems.receipt, workItems.freelance]} />
+      <Timeline items={[workItems.atlastix, workItems.researchAssistant, workItems.receipt]} dense />
     </section>
   );
 
@@ -631,7 +657,7 @@ const Resume = ({ variant = 'default' }: { variant?: ResumeVariant }) => {
   ) : (
     <>
       <section>
-        <Timeline items={[workItems.smartchip]} />
+        <Timeline items={[workItems.freelance, workItems.smartchip]} />
       </section>
       <section>
         <SectionTitle icon={<Briefcase size={20} />}>Project Experience</SectionTitle>
@@ -668,10 +694,10 @@ const Resume = ({ variant = 'default' }: { variant?: ResumeVariant }) => {
               <div className="mb-4 md:mb-0">
                 <h1 className="text-4xl font-bold mb-2">Nolan Cui</h1>
                 <h2 className="text-xl text-blue-100 mb-3">{copy.title}</h2>
-                <p className="max-w-lg text-blue-50 text-[13px] leading-relaxed mb-2">{copy.summary}</p>
+                <p className="max-w-lg md:max-w-[720px] print:max-w-[720px] text-blue-50 text-[13px] leading-relaxed mb-2">{copy.summary}</p>
               </div>
 
-              <div className="text-left md:text-right text-[12px] space-y-1.5 flex flex-col items-start md:items-end w-full md:w-auto">
+              <div className="text-left md:text-right text-[12px] space-y-1.5 flex flex-col items-start md:items-end w-full md:w-auto md:absolute md:right-6 md:top-5 print:absolute print:right-6 print:top-5">
                 <div className="flex items-center gap-2">
                   <span>0472 567 745</span>
                   <Phone size={16} />
@@ -693,9 +719,9 @@ const Resume = ({ variant = 'default' }: { variant?: ResumeVariant }) => {
             <div className="absolute bottom-0 left-0 right-0 h-8 bg-white" style={{ clipPath: 'ellipse(70% 60% at 50% 100%)' }}></div>
           </header>
 
-          <div className="flex flex-col md:flex-row px-4 md:px-8 pb-20 md:pb-8 pt-6 md:pt-2 gap-6 md:gap-8 print:flex-row print:gap-6">
-            <div className="w-full md:w-2/3 space-y-6 print:w-2/3">{page1Main}</div>
-            <Sidebar copy={copy} />
+          <div className={`flex flex-col md:flex-row pb-20 md:pb-8 pt-6 md:pt-2 print:flex-row ${isCVariant ? 'px-4 md:px-8 gap-6 md:gap-8 print:gap-6' : 'px-4 print:px-4 gap-5 md:gap-5 print:gap-5'}`}>
+            <div className={`w-full space-y-6 ${isCVariant ? 'md:w-2/3 print:w-2/3' : 'md:w-[73%] print:w-[73%]'}`}>{page1Main}</div>
+            <Sidebar copy={copy} widthClass={isCVariant ? 'md:w-1/3 print:w-1/3' : 'md:w-[27%] print:w-[27%]'} dense={!isCVariant} />
           </div>
 
           <div className="absolute bottom-4 left-4 md:left-auto md:right-8 text-left md:text-right text-[13px] text-gray-400">
@@ -708,9 +734,9 @@ const Resume = ({ variant = 'default' }: { variant?: ResumeVariant }) => {
         <div className="w-full md:w-[210mm] h-auto md:h-[297mm] min-h-screen md:min-h-[297mm] mx-auto bg-white shadow-lg print:shadow-none print:w-[210mm] print:h-[296mm] overflow-hidden text-gray-800 font-sans relative">
           <div className="h-16 w-full hidden md:block print:block"></div>
 
-          <div className="flex flex-col md:flex-row px-4 md:px-8 pb-20 md:pb-8 pt-6 md:pt-0 gap-6 md:gap-8 print:flex-row print:gap-6">
-            <div className="w-full md:w-2/3 space-y-6 print:w-2/3">{page2Main}</div>
-            <EducationAndActivities />
+          <div className={`flex flex-col md:flex-row pb-20 md:pb-8 pt-6 md:pt-0 print:flex-row ${isCVariant ? 'px-4 md:px-8 gap-6 md:gap-8 print:gap-6' : 'px-4 print:px-4 gap-5 md:gap-5 print:gap-5'}`}>
+            <div className={`w-full space-y-6 ${isCVariant ? 'md:w-2/3 print:w-2/3' : 'md:w-[73%] print:w-[73%]'}`}>{page2Main}</div>
+            <EducationAndActivities widthClass={isCVariant ? 'md:w-1/3 print:w-1/3' : 'md:w-[27%] print:w-[27%]'} />
           </div>
 
           <div className="absolute bottom-4 left-4 md:left-auto md:right-8 text-left md:text-right text-[13px] text-gray-400">
