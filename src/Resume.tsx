@@ -139,30 +139,28 @@ const cProjects: TimelineItem[] = [
 ];
 
 const defaultCopy: ResumeCopy = {
-  title: 'Software Engineer',
+  title: 'AI Engineer',
   summary:
     'Recent Master of Information Technology graduate from the University of Melbourne with hands-on experience delivering enterprise AI platforms, client software solutions, and full-stack products. Strong in scalable systems, practical problem-solving, and translating complex requirements into polished user experiences.',
   skills: {
     languages: ['Python', 'Java', 'C/C++', 'JavaScript', 'TypeScript', 'SQL'],
     frontend: ['React', 'React Native', 'Vue.js'],
-    backend: ['Node.js', 'Express.js', 'Flask', 'PostgreSQL', 'Redis', 'ElasticSearch'],
-    devops: ['AWS', 'Docker', 'Kubernetes', 'OpenAI API'],
+    backend: ['Node.js', 'FastAPI', 'Redis', 'ElasticSearch', 'PostgreSQL'],
+    devops: ['AWS', 'Docker', 'Kubernetes', 'Azure', 'Pydantic'],
   },
   capabilities: [
     'Full-Stack Architecture',
     'Cloud-Native Development',
     'Multi-Agent AI Systems',
+    'Workflow Automation',
     'UI/UX Design',
-    'Agile Leadership',
-    'System Optimization',
-    'Cross-Platform Development',
   ],
   work: {
     atlastix: [
-      'Contribute to Atlastix\'s multi-tenant enterprise AI platform using React/TypeScript, FastAPI, PostgreSQL, Kafka, Temporal, Keycloak, and MCP.',
-      'Engineer AI-assisted workflow authoring across a visual canvas and custom DSL, with live agent-editor synchronisation, validation, human approval, and reviewable diffs.',
-      'Extend the editor with parser-backed autocomplete, variable tracing, go-to-definition, reusable workflow components, execution overlays, and integrated AI chat while improving large-workflow performance and reliability.',
-      'Lead custom enterprise client solutions using React, FastAPI, PostgreSQL, and AWS, working directly with stakeholders to clarify requirements, demonstrate progress, and communicate technical trade-offs.',
+      'Develop automation workflows and AI-agent systems for an enterprise platform using React, TypeScript, FastAPI, PostgreSQL, Kafka, Temporal, Keycloak, and MCP.',
+      'Build agent-assisted workflow authoring across a visual canvas and custom DSL, including orchestration, validation, human approval, and reviewable execution changes.',
+      'Extend platform tooling with parser-backed autocomplete, variable tracing, reusable workflow components, execution overlays, and integrated AI chat to improve automation reliability and developer productivity.',
+      'Work closely with customers and internal stakeholders to clarify requirements, communicate technical trade-offs, demonstrate progress, and translate operational needs into practical AI workflow solutions.',
     ],
     researchAssistant: [
       'Developed and maintained a full-stack educational assessment platform (Vue.js, Vite, Python, Flask) for creating, delivering, and grading interactive logic-based questions.',
@@ -193,7 +191,7 @@ const variantCopy: Record<ResumeVariant, ResumeCopy> = {
   default: defaultCopy,
   ai: {
     ...defaultCopy,
-    title: 'Software Engineer',
+    title: 'AI Engineer',
     summary:
       'Recent Master of Information Technology graduate and software engineer focused on enterprise AI platforms, agent-assisted workflows, LLM integrations, and practical automation. Experienced in connecting AI capabilities with production web, mobile, and backend systems.',
     skills: {
@@ -240,7 +238,7 @@ const variantCopy: Record<ResumeVariant, ResumeCopy> = {
   },
   data: {
     ...defaultCopy,
-    title: 'Software Engineer',
+    title: 'AI Engineer',
     summary:
       'Recent Master of Information Technology graduate and software engineer focused on data-intensive applications, processing pipelines, database-backed products, and reliable data flows across web, mobile, and cloud systems.',
     skills: {
@@ -292,7 +290,7 @@ const variantCopy: Record<ResumeVariant, ResumeCopy> = {
   },
   cloud: {
     ...defaultCopy,
-    title: 'Software Engineer',
+    title: 'AI Engineer',
     summary:
       'Recent Master of Information Technology graduate and software engineer focused on cloud-native systems, backend infrastructure, serverless workflows, and scalable delivery across AWS, Docker, and Kubernetes environments.',
     skills: {
@@ -334,7 +332,7 @@ const variantCopy: Record<ResumeVariant, ResumeCopy> = {
   },
   c: {
     ...defaultCopy,
-    title: 'Software Engineer',
+    title: 'AI Engineer',
     summary:
       'Recent Master of Information Technology graduate with hands-on experience across systems programming, full-stack products, distributed systems, and enterprise software delivery.',
     skills: {
@@ -488,10 +486,10 @@ const buildWorkItems = (copy: ResumeCopy): Record<
   TimelineItem
 > => ({
   atlastix: {
-    title: 'Junior AI Developer',
+    title: 'Junior AI Engineer',
     date: '07/2026 ~ Now',
     organization: 'Atlastix - Melbourne, Australia',
-    tags: ['React', 'TypeScript', 'Python', 'FastAPI', 'PostgreSQL', 'AWS', 'Temporal'],
+    tags: ['React', 'TypeScript', 'Python', 'FastAPI', 'PostgreSQL', 'AWS', 'Agent', 'Workflow'],
     bullets: copy.work.atlastix,
   },
   researchAssistant: {
@@ -507,7 +505,7 @@ const buildWorkItems = (copy: ResumeCopy): Record<
     date: '07/2025 ~ 07/2026',
     organization: '1Receipt - Melbourne, Australia',
     meta: 'Internship (07/2025 ~ 07/2026) - junior software developer (12/2025 ~ 07/2026)',
-    tags: ['React Native', 'Javascript', 'Node.js', 'AWS', 'Python', 'Clover SDK'],
+    tags: ['React Native', 'Javascript', 'Node.js', 'AWS', 'Python'],
     bullets: copy.work.receipt,
   },
   freelance: {
