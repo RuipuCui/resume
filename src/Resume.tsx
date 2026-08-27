@@ -80,6 +80,26 @@ const baseProjects: TimelineItem[] = [
   },
 ];
 
+const aiQuantumMaxProject: TimelineItem = {
+  ...baseProjects[0],
+  tags: ['React', 'TypeScript', 'Node.js', 'FastAPI', 'OpenAI API', 'Gemini', 'Supabase'],
+  bullets: [
+    'Built the AI kernel that converts lecture-slide PDFs into structured Knowledge Units using pypdf extraction, prompt templates, OpenAI Responses API, strict JSON validation, and source page metadata.',
+    'Implemented AI-assisted course authoring flows where teachers upload raw materials, generate editable KUs, approve/publish weekly content, and persist generated outputs through the Node API and Supabase.',
+    'Added AI quiz and media generation pipelines from approved KUs, including OpenAI-generated quizzes, Gemini visual generation, Minimax TTS, ffmpeg video composition, task tracking, and Supabase image/video storage.',
+  ],
+};
+
+const cloudMajorProspectsProject: TimelineItem = {
+  ...baseProjects[1],
+  tags: ['Python', 'Kubernetes', 'Fission', 'Docker', 'Redis', 'KEDA', 'ElasticSearch', 'PyTorch'],
+  bullets: [
+    'Designed a Kubernetes/Fission data pipeline with scheduled Reddit and Mastodon harvesters, Kubernetes secrets, and Fission routes/timers for historical and daily social-media collection.',
+    'Connected serverless functions through Redis queues and KEDA MQ triggers: raw posts were enqueued, enriched by a custom Docker/PyTorch Fission environment, then indexed into Elasticsearch observations.',
+    'Built Elasticsearch-backed API functions for top mentions, sentiment-ranked majors, topic associations, and a Jupyter/Voila frontend for interactive cloud-hosted analytics.',
+  ],
+};
+
 const sharedWhiteboardProject: TimelineItem = {
   title: 'Shared Whiteboard (Java RMI)',
   role: 'Java Developer',
@@ -166,7 +186,7 @@ const defaultCopy: ResumeCopy = {
       'Participated in multiple formal documents including patent applications and technical proposals.',
     ],
   },
-  projects: baseProjects,
+  projects: [aiQuantumMaxProject, cloudMajorProspectsProject],
 };
 
 const variantCopy: Record<ResumeVariant, ResumeCopy> = {
@@ -210,15 +230,7 @@ const variantCopy: Record<ResumeVariant, ResumeCopy> = {
       ],
     },
     projects: [
-      {
-        ...baseProjects[0],
-        tags: ['React', 'TypeScript', 'Node.js', 'FastAPI', 'OpenAI API', 'Gemini', 'Supabase'],
-        bullets: [
-          'Built the AI kernel that converts lecture-slide PDFs into structured Knowledge Units using pypdf extraction, prompt templates, OpenAI Responses API, strict JSON validation, and source page metadata.',
-          'Implemented AI-assisted course authoring flows where teachers upload raw materials, generate editable KUs, approve/publish weekly content, and persist generated outputs through the Node API and Supabase.',
-          'Added AI quiz and media generation pipelines from approved KUs, including OpenAI-generated quizzes, Gemini visual generation, Minimax TTS, ffmpeg video composition, task tracking, and Supabase image/video storage.',
-        ],
-      },
+      aiQuantumMaxProject,
       {
         ...baseProjects[1],
         description:
@@ -316,15 +328,7 @@ const variantCopy: Record<ResumeVariant, ResumeCopy> = {
       ],
     },
     projects: [
-      {
-        ...baseProjects[1],
-        tags: ['Python', 'Kubernetes', 'Fission', 'Docker', 'Redis', 'KEDA', 'ElasticSearch', 'PyTorch'],
-        bullets: [
-          'Designed a Kubernetes/Fission data pipeline with scheduled Reddit and Mastodon harvesters, Kubernetes secrets, and Fission routes/timers for historical and daily social-media collection.',
-          'Connected serverless functions through Redis queues and KEDA MQ triggers: raw posts were enqueued, enriched by a custom Docker/PyTorch Fission environment, then indexed into Elasticsearch observations.',
-          'Built Elasticsearch-backed API functions for top mentions, sentiment-ranked majors, topic associations, and a Jupyter/Voila frontend for interactive cloud-hosted analytics.',
-        ],
-      },
+      cloudMajorProspectsProject,
       baseProjects[0],
     ],
   },
